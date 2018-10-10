@@ -1,0 +1,101 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=960">
+    <title>Usage example</title>
+    <style>body { margin: 0; }</style>
+
+    <!-- Start: injected by Adguard -->
+    <script src="//local.adguard.com/adguard-ajax-api/injections/content-script.js?ts=63673252190852&amp;domain=trunk.uwspassport-widget.8.dev.dalee.ru&amp;mask=111" nonce="e8389e5aefb9408398742c71ce751192" type="text/javascript"></script>
+    <script src="//local.adguard.com/adguard-ajax-api/injections/userscripts.js?ts=63673208931250&name=Popup%20Blocker%20by%20AdGuard&name=Adguard%20Assistant" nonce="e8389e5aefb9408398742c71ce751192" type="text/javascript"></script>
+
+    <!-- End: injected by Adguard -->
+
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/styles.css">
+
+</head>
+<body>
+<div>
+    <button id="signIn">Вход</button>
+    <button id="signUp">Регистрация</button>
+    <button id="restorePassword">Восстановление пароля</button>
+    <button id="sendConfirmToEmail">Подтвеждение email</button>
+    <button id="sendConfirmToPhone">Подтвеждение телефона</button>
+    <button id="updateProfile">Обновление профиля</button>
+</div>
+
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+
+<script src="//trunk.uwspassport.8.dev.dalee.ru/widget.js"></script>
+<script>
+    const widget = new UWSPassportWidget({
+        baseUrl: '//trunk.uwspassport.8.dev.dalee.ru',
+        projectId: '688',
+
+        onSignInSuccess: function (result) { console.log(result) },
+        onSignInFailure: function (error) { console.error(error) },
+
+        onSignOutSuccess: function (result) { console.log(result) },
+        onSignOutFailure: function (error) { console.error(error) },
+
+        onSignUpSuccess: function (result) { console.log(result) },
+        onSignUpFailure: function (error) { console.error(error) },
+
+        onRestorePasswordSuccess: function (result) { console.log(result) },
+        onRestorePasswordFailure: function (error) { console.error(error) },
+
+        onGetTokenSuccess: function (result) { console.log(result) },
+        onGetTokenFailure: function (error) { console.error(error) },
+
+        onGetProfileSuccess: function (result) { console.log(result) },
+        onGetProfileFailure: function (error) { console.error(error) }
+    });
+
+    document.querySelector('#signIn').addEventListener('click', function () {
+        widget.signInWithUI();
+
+        UwsWidget.SignIn();
+
+    });
+
+    document.querySelector('#signUp').addEventListener('click', function () {
+        widget.signUpWithUI();
+    });
+
+    document.querySelector('#restorePassword').addEventListener('click', function () {
+        widget.restorePasswordWithUI();
+
+        UwsWidget.RestorePassword();
+    });
+
+    document.querySelector('#sendConfirmToEmail').addEventListener('click', function () {
+        widget.sendConfirmToEmailWithUI();
+
+        UwsWidget.ConfirmEmail();
+    });
+
+    document.querySelector('#sendConfirmToPhone').addEventListener('click', function () {
+        widget.sendConfirmToPhoneWithUI();
+
+        UwsWidget.ConfirmPhone();
+    });
+
+    document.querySelector('#updateProfile').addEventListener('click', function () {
+        widget.updateProfileWithUI();
+    });
+</script>
+
+
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+<script src="/js/jquery.nicescroll.min.js"></script>
+<script src="/js/main.js"></script>
+</body>
+</html>
