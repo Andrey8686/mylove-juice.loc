@@ -1,7 +1,5 @@
-
-
-
 $(function ($) {
+
 
     $(".nicescroll-block").niceScrollExt({
         cursorwidth : 12,
@@ -27,7 +25,6 @@ $(function ($) {
     SelectTheme.Init();
 
 
-    //PageCor.Init();
 
 
     $('.carousel').carousel({
@@ -44,10 +41,10 @@ $(function ($) {
         xs: "auto",
     });
 
-    $(".nicescroll-block-pomosch").niceScrollCor({
-        xl: 300,
-        lg: 290,
-        md: 250,
+    $(".nicescroll-block-pomosch").niceScrollCor2({
+        xl: 110,
+        lg: 100,
+        md: 90,
         sm: "auto",
         xs: "auto",
     });
@@ -61,15 +58,40 @@ $(function ($) {
     });
 
     AskQuestion.Init();
+
+
+
+    $("input[type=file]").each(function () {
+        let input = $(this);
+        let label = $(this).prev().find("> span");
+        input.change(function () {
+            let ar = $(this).val().split('\\');
+            label.text(ar[ar.length - 1]);
+        });
+    });
+
+
+    $(".page-winners .btn-collapse-block").click(function () {
+        $(this).find("span").text($(this).attr("aria-expanded") == "true" ? "+" : "-");
+    });
+
+
 });
+
+
+
+
+
+
+
 
 
 let AskQuestion = {
     Flag: false,
     IsOpen: false,
     Init: function () {
-      this.main = $(".ask-question");
-      this.btn = this.main.find(".aq-btn");
+        this.main = $(".ask-question");
+        this.btn = this.main.find(".aq-btn");
 
         this.btn.click(function () {
             if (AskQuestion.IsOpen) {
@@ -113,27 +135,65 @@ let UwsWidget = {
         UwsWidget.buttons = UwsWidget.main.find("button");
         UwsWidget.main.find(".uws-dialog *").removeAttr("class");
 
+
+        $(UwsWidget.buttons[0]).addClass("icon-close");
+    },
+    SetPlaceholder: function() {
         UwsWidget.inputText.each(function () {
             let label = $($(this).prev("label")).remove();
             $(this).attr("placeholder", label.text());
         });
-        $(UwsWidget.buttons[0]).addClass("icon-close");
     },
     SignIn: function () {
         this.intervalId = setInterval(function () {
             UwsWidget.InitDefault();
-            if (UwsWidget.inputText.length) {
+            if (UwsWidget.buttons.length == 9) {
                 clearInterval(UwsWidget.intervalId);
 
-                UwsWidget.main.find(".uws-dialog > div:nth-child(2) > div").html("<a href='#'><img src='/images/btn-vk.png'></a><a href='#'><img src='/images/btn-fb.png'></a>");
+                UwsWidget.SetPlaceholder();
 
                 UwsWidget.main.find("h1").text("Вход");
 
-                $(UwsWidget.buttons[1]).addClass("button-theme order-1").html("<span><span>" + $(UwsWidget.buttons[1]).text() + "</span></span>");
-                $(UwsWidget.buttons[3]).addClass("button-theme order-4").html("<span><span>" + $(UwsWidget.buttons[3]).text() + "</span></span>");
+                $(UwsWidget.buttons[1]).addClass("btn-fb").html("<img src='/images/btn-fb.png'>").attr("onclick", "UwsWidget.SignUp()");
+                $(UwsWidget.buttons[2]).addClass("btn-ok").html("<img src='/images/btn-ok.png'>").attr("onclick", "UwsWidget.SignUp()");
+                $(UwsWidget.buttons[3]).addClass("btn-vk").html("<img src='/images/btn-vk.png'>").attr("onclick", "UwsWidget.SignUp()");
+                $(UwsWidget.buttons[4]).hide();
 
-                $(UwsWidget.buttons[2]).addClass("btn btn-link order-2").attr("onclick", "UwsWidget.RestorePassword()");
-                $(UwsWidget.buttons[4]).addClass("btn btn-link order-3").attr("onclick", "UwsWidget.ConfirmEmail()");
+                $(UwsWidget.buttons[5]).addClass("button-theme order-1").html("<span><span>" + $(UwsWidget.buttons[5]).text() + "</span></span>");
+                $(UwsWidget.buttons[7]).addClass("button-theme order-4").html("<span><span>" + $(UwsWidget.buttons[7]).text() + "</span></span>").attr("onclick", "UwsWidget.SignUp()");
+
+                $(UwsWidget.buttons[6]).addClass("btn btn-link order-2").attr("onclick", "UwsWidget.RestorePassword()");
+                $(UwsWidget.buttons[8]).addClass("btn btn-link order-3").attr("onclick", "UwsWidget.ConfirmEmail()");
+            }
+        }, 10);
+    },
+    SignUp: function () {
+        this.intervalId = setInterval(function () {
+            UwsWidget.InitDefault();
+            if (UwsWidget.buttons.length == 8) {
+                clearInterval(UwsWidget.intervalId);
+
+                UwsWidget.SetPlaceholder();
+
+                UwsWidget.main.find("input[type=radio]").RadioTheme();
+                UwsWidget.main.find("input[type=checkbox]").CheckboxTheme();
+
+                UwsWidget.main.find("input[name=captcha]").attr("type", "text");
+
+
+
+                $(UwsWidget.buttons[1]).addClass("btn-fb").html("<img src='/images/btn-fb.png'>");
+                $(UwsWidget.buttons[2]).addClass("btn-ok").html("<img src='/images/btn-ok.png'>");
+                $(UwsWidget.buttons[3]).addClass("btn-vk").html("<img src='/images/btn-vk.png'>");
+                $(UwsWidget.buttons[4]).hide();
+
+
+
+                $(UwsWidget.buttons[5]).addClass("refresh").html("<span class='icon-refresh'><span>");
+
+                $(UwsWidget.buttons[6]).addClass("button-theme").html("<span><span>" + $(UwsWidget.buttons[6]).text() + "</span></span>");
+
+                $(UwsWidget.buttons[7]).addClass("btn btn-link").attr("onclick", "UwsWidget.SignIn()");
             }
         }, 10);
     },
@@ -143,7 +203,12 @@ let UwsWidget = {
             if (UwsWidget.inputText.length) {
                 clearInterval(UwsWidget.intervalId);
 
+                UwsWidget.SetPlaceholder();
+
                 UwsWidget.main.find("h1").text("Восстановление").after("<h1>пароля</h1>");
+
+                $(UwsWidget.inputText[1]).parent().hide();
+
 
                 $(UwsWidget.buttons[1]).addClass("button-theme").html("<span><span>" + $(UwsWidget.buttons[1]).text() + "</span></span>");
 
@@ -157,7 +222,9 @@ let UwsWidget = {
             if (UwsWidget.inputText.length) {
                 clearInterval(UwsWidget.intervalId);
 
-                UwsWidget.main.find("h1").text("Подтверждение").after("<h1>email</h1>");
+                UwsWidget.SetPlaceholder();
+
+                UwsWidget.main.find("h1").text("Подтверждение").after("<h1>e-mail</h1>");
 
                 $(UwsWidget.buttons[1]).addClass("button-theme").html("<span><span>" + $(UwsWidget.buttons[1]).text() + "</span></span>");
             }
@@ -169,6 +236,8 @@ let UwsWidget = {
             if (UwsWidget.inputText.length) {
                 clearInterval(UwsWidget.intervalId);
 
+                UwsWidget.SetPlaceholder();
+
                 UwsWidget.main.find("h1").text("Подтверждение").after("<h1>телефона</h1>");
 
                 $(UwsWidget.buttons[1]).addClass("button-theme").html("<span><span>" + $(UwsWidget.buttons[1]).text() + "</span></span>");
@@ -176,13 +245,6 @@ let UwsWidget = {
         }, 10);
     }
 };
-
-
-
-
-
-
-
 
 
 
@@ -227,6 +289,56 @@ $.fn.niceScrollCor = function (e) {
 
 
 
+function c(t) {
+    console.log(t);
+}
+
+$.fn.niceScrollCor2 = function (e) {
+    let main = $(this);
+
+
+    if (main.length) {
+
+        let idI = setInterval(function () {
+            main.height(1);
+        }, 10);
+
+
+        setInterval(Check, 100);
+
+        $(window).resize(function () {
+            main.height(300);
+            Check();
+        });
+
+
+
+        function Check() {
+            clearInterval(idI);
+
+            let w = $("main");
+            if (w.width() >= 1200) {
+                main.height(e.xl == "auto" ? "auto" : w.height() - e.xl);
+            }
+            else if (w.width() >= 992) {
+                main.height(e.lg == "auto" ? "auto" : w.height() - e.lg);
+            }
+            else if (w.width() >= 768) {
+                main.height(e.md == "auto" ? "auto" : w.height() - e.md);
+            }
+            else if (w.width() >= 576) {
+                main.height(e.sm == "auto" ? "auto" : w.height() - e.sm);
+            }
+            else {
+                main.height(e.xs == "auto" ? "auto" : w.height() - e.xs);
+            }
+        }
+    }
+};
+
+
+
+
 
 
 $.fn.niceScrollExt = function (e) {
@@ -241,44 +353,16 @@ $.fn.niceScrollExt = function (e) {
 
 
 
-// let PageCor = {
-//     Init: function () {
-//         this.header = $("header");
-//         this.main = $("main");
-//         this.footer = $("footer");
-//         this.div = this.main.find("> div");
-//
-//         setTimeout(function () {
-//             PageCor.Cor();
-//         }, 100);
-//
-//
-//
-//         $(window).resize(function () {
-//             PageCor.Cor();
-//         });
-//     },
-//     Cor: function () {
-//         this.div.removeClass("h-100");
-//
-//         let hf = $(window).height() - this.header.height() - this.footer.height();
-//         let h = this.div.height() < hf ? hf : this.div.height();
-//         this.main.height(h);
-//
-//         this.div.addClass("h-100");
-//     }
-// };
-
 
 
 
 
 function TitlePageHtemeInit() {
     $(".title-page").each(function () {
-       var main = $(this);
-       if (!main.find(".title-page-shadow").length) {
-           main.html(main.text() + "<span class=\"title-page-shadow\">" + main.text() + "</span>");
-       }
+        var main = $(this);
+        if (!main.find(".title-page-shadow").length) {
+            main.html(main.text() + "<span class=\"title-page-shadow\">" + main.text() + "</span>");
+        }
     });
 }
 
@@ -300,8 +384,8 @@ $.fn.hasAttr = function (name) {
 
 $.fn.CheckboxTheme = function () {
     $(this).each(function () {
-        var main = $(this);
-        var mainParent = main.parent();
+        let main = $(this);
+        let mainParent = main.parent();
 
         if (mainParent.hasClass("checkbox-block")) return false;
         mainParent.addClass("checkbox-block").prepend("<i></i>");
@@ -316,15 +400,19 @@ $.fn.CheckboxTheme = function () {
             mainParent.addClass("checked");
         }
 
-        mainParent.find("i").click(function () {
+        mainParent.find("i, label").click(function () {
+
+
             if (main.is(":disabled")) return false;
 
-            if (main.is(":checked")) {
-                main.prop("checked", false);
+            main.click();
+
+            if (!main.is(":checked")) {
+                //main.prop("checked", false);
                 mainParent.removeClass("checked");
             }
             else {
-                main.prop("checked", true);
+                //main.prop("checked", true);
                 mainParent.addClass("checked");
             }
             return false;
@@ -346,8 +434,9 @@ $.fn.RadioTheme = function () {
         else if (!main.hasAttr("checked") && main.hasAttr("disabled")) mainParent.addClass("disabled");
         else if (main.hasAttr("checked") && !main.hasAttr("disabled")) mainParent.addClass("checked");
 
-        mainParent.find("i").click(function () {
-            var input = $(this).next();
+        mainParent.find("i, label").click(function () {
+
+            var input = $(this).parent().find("input");
             var name = input.attr("name");
             var allInputs = $("input[name=" + name + "]");
             allInputs.each(function () {
@@ -418,3 +507,5 @@ var SelectTheme = {
         SelectTheme.Flag = false;
     }
 };
+function afterOpenPopup() {
+}
