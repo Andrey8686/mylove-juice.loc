@@ -1925,37 +1925,46 @@ input[type="text"]:focus {
   }
 }
 /* Форма восстановления пароля ====================================== */
-#uws-restore-password {
+#uws-restore-password,
+#uws-restore-password-success {
   width: 490px !important;
 }
-#uws-restore-password > div:first-child {
+#uws-restore-password > div:first-child,
+#uws-restore-password-success > div:first-child {
   padding-bottom: 20px;
 }
-#uws-restore-password > div:last-child {
+#uws-restore-password > div:last-child,
+#uws-restore-password-success > div:last-child {
   display: flex;
   justify-content: center;
   flex-direction: column;
 }
-#uws-restore-password > div:last-child button:first-child {
+#uws-restore-password > div:last-child button:first-child,
+#uws-restore-password-success > div:last-child button:first-child {
   margin-bottom: 20px;
 }
-#uws-restore-password h1 {
+#uws-restore-password h1,
+#uws-restore-password-success h1 {
   margin: 0;
   line-height: 46px;
 }
-#uws-restore-password form {
+#uws-restore-password form,
+#uws-restore-password-success form {
   display: flex;
   flex-direction: column;
 }
-#uws-restore-password form > div {
+#uws-restore-password form > div,
+#uws-restore-password-success form > div {
   margin-bottom: 30px;
 }
 @media (max-width: 575px) {
-  #uws-restore-password {
+  #uws-restore-password,
+  #uws-restore-password-success {
     width: 290px !important;
     padding: 18px 20px 35px !important;
   }
-  #uws-restore-password h1 {
+  #uws-restore-password h1,
+  #uws-restore-password-success h1 {
     font-size: 30px;
     line-height: 33px;
   }
