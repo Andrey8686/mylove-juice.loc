@@ -34,9 +34,9 @@ $(function ($) {
 
 
     $(".nicescroll-block-lk").niceScrollCor({
-        xl: 500,
-        lg: 500,
-        md: 480,
+        xl: 540,
+        lg: 540,
+        md: 520,
         sm: "auto",
         xs: "auto",
     });
@@ -77,13 +77,6 @@ $(function ($) {
 
 
 });
-
-
-
-
-
-
-
 
 
 let AskQuestion = {
@@ -154,9 +147,9 @@ let UwsWidget = {
 
                 UwsWidget.main.find("h1").text("Вход");
 
-                $(UwsWidget.buttons[1]).addClass("btn-fb").html("<img src='/images/btn-fb.png'>").attr("onclick", "UwsWidget.SignUp()");
-                $(UwsWidget.buttons[2]).addClass("btn-ok").html("<img src='/images/btn-ok.png'>").attr("onclick", "UwsWidget.SignUp()");
-                $(UwsWidget.buttons[3]).addClass("btn-vk").html("<img src='/images/btn-vk.png'>").attr("onclick", "UwsWidget.SignUp()");
+                $(UwsWidget.buttons[1]).addClass("btn-fb").html("<img src='/images/btn-fb.png'>").attr("onclick", "UwsWidget.CheckForm()");
+                $(UwsWidget.buttons[2]).addClass("btn-ok").html("<img src='/images/btn-ok.png'>").attr("onclick", "UwsWidget.CheckForm()");
+                $(UwsWidget.buttons[3]).addClass("btn-vk").html("<img src='/images/btn-vk.png'>").attr("onclick", "UwsWidget.CheckForm()");
                 $(UwsWidget.buttons[4]).hide();
 
                 $(UwsWidget.buttons[5]).addClass("button-theme order-1").html("<span><span>" + $(UwsWidget.buttons[5]).text() + "</span></span>");
@@ -166,6 +159,15 @@ let UwsWidget = {
                 $(UwsWidget.buttons[8]).addClass("btn btn-link order-3").attr("onclick", "UwsWidget.ConfirmEmail()");
             }
         }, 10);
+    },
+    CheckForm: function() {
+        UwsWidget.main = $(".uws-widget");
+        if (UwsWidget.main.find("#uws-sign-in").length) {
+            UwsWidget.SignIn();
+        }
+        else {
+            UwsWidget.SignUp();
+        }
     },
     SignUp: function () {
         this.intervalId = setInterval(function () {
@@ -182,9 +184,9 @@ let UwsWidget = {
 
 
 
-                $(UwsWidget.buttons[1]).addClass("btn-fb").html("<img src='/images/btn-fb.png'>");
-                $(UwsWidget.buttons[2]).addClass("btn-ok").html("<img src='/images/btn-ok.png'>");
-                $(UwsWidget.buttons[3]).addClass("btn-vk").html("<img src='/images/btn-vk.png'>");
+                $(UwsWidget.buttons[1]).addClass("btn-fb").html("<img src='/images/btn-fb.png'>").attr("onclick", "UwsWidget.CheckForm()");
+                $(UwsWidget.buttons[2]).addClass("btn-ok").html("<img src='/images/btn-ok.png'>").attr("onclick", "UwsWidget.CheckForm()");
+                $(UwsWidget.buttons[3]).addClass("btn-vk").html("<img src='/images/btn-vk.png'>").attr("onclick", "UwsWidget.CheckForm()");
                 $(UwsWidget.buttons[4]).hide();
 
 

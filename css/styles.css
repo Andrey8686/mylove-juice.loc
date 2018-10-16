@@ -1327,6 +1327,9 @@ nav > div > div > div > div ul li a.nav-link:hover span:last-child {
     width: 260px;
     margin: auto;
   }
+  .page-lk .slide_t1 img {
+    height: 105px;
+  }
   .page-lk table th {
     font-size: 15px;
     line-height: 16px;
@@ -1362,7 +1365,10 @@ nav > div > div > div > div ul li a.nav-link:hover span:last-child {
     margin: 0;
   }
   .page-lk .button-theme-md {
-    margin: 9px auto 35px;
+    margin: 9px auto 29px;
+  }
+  .page-lk .slide_t1 img {
+    height: auto;
   }
   .page-lk table th {
     font-size: 14px;
@@ -1697,6 +1703,38 @@ nav > div > div > div > div ul li a.nav-link:hover span:last-child {
   margin-bottom: 20px;
 }
 /* ====================================================================================== */
+.page-num {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  margin: 10px 0;
+}
+.page-num > * {
+  font-family: 'BlissPro-Medium';
+  font-size: 12px;
+  margin-right: 5px;
+}
+.page-num > *.active {
+  font-size: 16px;
+}
+.page-num > *:first-child {
+  text-decoration: none;
+}
+.page-num > *:last-child {
+  margin-right: 0;
+  text-decoration: none;
+}
+@media screen and (max-width: 767px) {
+  .page-num > * {
+    font-size: 7.5px;
+  }
+  .page-num > *.active {
+    font-size: 10px;
+  }
+}
+.revizor__button-style {
+  line-height: 48px !important;
+}
 form .p14 {
   font-family: 'BlissPro-Light';
   font-size: 14px;
