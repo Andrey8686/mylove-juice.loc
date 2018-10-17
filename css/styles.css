@@ -73,6 +73,9 @@ header .h-line {
   }
 }
 @media screen and (max-width: 767px) {
+  header {
+    background-size: 134%;
+  }
   header .logo {
     margin-left: 10px;
   }
@@ -132,6 +135,9 @@ footer p span {
   white-space: nowrap;
 }
 @media (max-width: 575px) {
+  footer {
+    background-size: 134%;
+  }
   footer > div > div > div > div {
     height: 25px;
   }
@@ -718,9 +724,6 @@ nav > div > div > div > div ul li a.nav-link:hover span:last-child {
     font-size: 16px;
     line-height: 17px;
   }
-  .page-pomosch .checkbox-block {
-    font-size: 11px;
-  }
 }
 @media screen and (max-width: 767px) {
   .page-pomosch .nicescroll-block {
@@ -920,17 +923,6 @@ nav > div > div > div > div ul li a.nav-link:hover span:last-child {
   }
 }
 /* Заглушка ================================================================================== */
-@media (min-width: 768px) {
-  .page-zaglushka {
-    padding-bottom: 100px;
-  }
-}
-@media (max-width: 767px) {
-  .page-zaglushka {
-    padding-bottom: 0;
-    height: auto !important;
-  }
-}
 .page-zaglushka .timer {
   display: table;
   margin: auto;
@@ -1044,9 +1036,68 @@ nav > div > div > div > div ul li a.nav-link:hover span:last-child {
     bottom: auto;
   }
 }
+.page-zaglushka .pack-img {
+  display: table;
+  margin: 40px auto 0;
+}
+.page-zaglushka .img-try {
+  max-width: 100%;
+  display: table;
+  margin: 40px auto 40px;
+}
+@media screen and (max-width: 1399px) {
+  .page-zaglushka .pack-img {
+    max-width: 70%;
+    margin: 10px auto 0;
+  }
+  .page-zaglushka .img-try {
+    margin: 10px auto 10px;
+  }
+  .page-zaglushka .timer h2 {
+    font-size: 43px;
+  }
+  .page-zaglushka .timer > div > div > div:first-child {
+    width: 94px;
+    height: 79px;
+    font-size: 55px;
+    line-height: 66px;
+  }
+  .page-zaglushka .timer > div > div > div:last-child {
+    font-size: 25px;
+  }
+}
+@media (max-width: 991px) {
+  .page-zaglushka .pack-img {
+    max-width: 100%;
+  }
+}
+@media (min-width: 768px) {
+  .page-zaglushka {
+    padding-bottom: 100px;
+  }
+}
+@media (max-width: 767px) {
+  .page-zaglushka {
+    padding-bottom: 0;
+    height: auto !important;
+  }
+}
+@media (max-width: 1399px) and (min-width: 992px) {
+  .header-zaglushka .logo img {
+    height: 70px;
+  }
+  .header-zaglushka > div > div > div > div {
+    height: 77px;
+  }
+}
 @media screen and (max-width: 1199px) {
   .page-body-zaglushka {
     padding-bottom: 58px !important;
+  }
+}
+@media (max-width: 1399px) and (min-width: 992px) {
+  .page-body-zaglushka {
+    padding-top: 82px !important;
   }
 }
 @media screen and (max-width: 991px) {
@@ -1817,6 +1868,7 @@ form .p14 {
   line-height: 18px;
   display: flex;
   align-items: flex-start;
+  justify-content: space-between;
 }
 .checkbox-block i {
   background: url(/images/checkbox.png) left top no-repeat;
@@ -1840,6 +1892,9 @@ form .p14 {
   background-position: left bottom;
 }
 .checkbox-block input {
+  position: absolute;
+  top: -10000px;
+  left: -10000px;
   opacity: 0;
 }
 input[type="text"]:focus {
