@@ -76,7 +76,52 @@ $(function ($) {
     });
 
 
+
+
+
+
+
+    $(".timer").TimeLeft();
+
+
 });
+
+
+
+
+$.fn.TimeLeft = function () {
+    let main = $(this);
+    let d = main.find(".day");
+    let h = main.find(".hour");
+    let m = main.find(".min");
+
+    let date1 = new Date("11/1/2018");
+
+    setInterval(function () {
+        let date2 = new Date();
+        let t = Math.abs((date1.getTime() - date2.getTime()) / 1000);
+
+        let dd = Math.floor(t / (3600 * 24));
+        let hh = Math.floor((t - 3600 * 24 * dd) / 3600);
+        let mm = Math.floor((t - (3600 * 24 * dd + 3600 * hh)) / 60) + 1;
+
+        d.text(dd);
+        h.text(hh < 10 ? "0"+ hh : hh);
+        m.text(mm < 10 ? "0"+ mm : mm);
+
+    }, 1000);
+};
+
+
+
+
+
+
+
+
+
+
+
 
 
 let AskQuestion = {
