@@ -119,14 +119,12 @@ let AskQuestion = {
 
 
 
-
-
 let UwsWidget = {
     InitDefault: function() {
         UwsWidget.main = $(".uws-widget");
         UwsWidget.inputText = UwsWidget.main.find("input[type=email], input[type=password], input[type=tel], input[type=text]");
         UwsWidget.buttons = UwsWidget.main.find("button");
-        UwsWidget.main.find(".uws-dialog *").removeAttr("class");
+        UwsWidget.main.find(".uws-dialog *[class!=checkbox-block]").removeAttr("class");
 
 
         $(UwsWidget.buttons[0]).addClass("icon-close");
@@ -215,6 +213,19 @@ let UwsWidget = {
                 $(UwsWidget.buttons[1]).addClass("button-theme").html("<span><span>" + $(UwsWidget.buttons[1]).text() + "</span></span>");
 
                 $(UwsWidget.buttons[2]).addClass("btn btn-link").attr("onclick", "UwsWidget.SignIn()");
+            }
+        }, 10);
+    },
+    DropPassword: function () {
+        this.intervalId = setInterval(function () {
+            UwsWidget.InitDefault();
+
+            if (UwsWidget.inputText.length == 2) {
+                clearInterval(UwsWidget.intervalId);
+
+                UwsWidget.SetPlaceholder();
+
+                $(UwsWidget.buttons[1]).addClass("button-theme").html("<span><span>" + $(UwsWidget.buttons[1]).text() + "</span></span>");
             }
         }, 10);
     },
@@ -389,7 +400,10 @@ $.fn.CheckboxTheme = function () {
         let main = $(this);
         let mainParent = main.parent();
 
-        if (mainParent.hasClass("checkbox-block")) return false;
+        if (mainParent.hasClass("checkbox-block")) {
+            return false;
+        }
+
         mainParent.addClass("checkbox-block").prepend("<i></i>");
 
         if (main.is(":checked") && main.is(":disabled")) {

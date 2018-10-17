@@ -126,7 +126,7 @@ footer p {
   font-size: 12px;
   line-height: 14px;
   text-transform: uppercase;
-  text-shadow: 0 -4px 0 #A01925, 0 -4px 0 #A01925, 0 4px 0 #A01925, 0 4px 0 #A01925, -4px 0 0 #A01925, 4px 0 0 #A01925, -4px 0 0 #A01925, 4px 0 0 #A01925, -1px -4px 0 #A01925, 1px -4px 0 #A01925, -1px 4px 0 #A01925, 1px 4px 0 #A01925, -4px -1px 0 #A01925, 4px -1px 0 #A01925, -4px 1px 0 #A01925, 4px 1px 0 #A01925, -2px -4px 0 #A01925, 2px -4px 0 #A01925, -2px 4px 0 #A01925, 2px 4px 0 #A01925, -4px -2px 0 #A01925, 4px -2px 0 #A01925, -4px 2px 0 #A01925, 4px 2px 0 #A01925, -3px -4px 0 #A01925, 3px -4px 0 #A01925, -3px 4px 0 #A01925, 3px 4px 0 #A01925, -4px -3px 0 #A01925, 4px -3px 0 #A01925, -4px 3px 0 #A01925, 4px 3px 0 #A01925, -4px -4px 0 #A01925, 4px -4px 0 #A01925, -4px 4px 0 #A01925, 4px 4px 0 #A01925, -4px -4px 0 #A01925, 4px -4px 0 #A01925, -4px 4px 0 #A01925, 4px 4px 0 #A01925;
+  background: #A3081A;
 }
 footer p span {
   white-space: nowrap;
@@ -141,6 +141,11 @@ footer p span {
     line-height: 12px;
     text-transform: uppercase;
   }
+}
+.footer-zaglushka p {
+  text-align: left ;
+  text-transform: none;
+  margin: 0;
 }
 h1,
 .h1 {
@@ -277,7 +282,18 @@ button[type=submit]:active > span {
   background-image: -ms-repeating-linear-gradient(bottom, #FFDD02 0%, #FFEE8C 100%);
 }
 .button-theme:active > span > span,
-button[type=submit]:active > span > span {
+button[type=submit]:active > span > span,
+.button-theme:active > span > span:active,
+button[type=submit]:active > span > span:active {
+  background-color: #FFE023;
+  background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIHZpZXdCb3g9IjAgMCAxIDEiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjxsaW5lYXJHcmFkaWVudCBpZD0idnNnZyIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiIHgxPSIwJSIgeTE9IjEwMCUiIHgyPSIwJSIgeTI9IjAlIj48c3RvcCBzdG9wLWNvbG9yPSIjZjZlNjJjIiBzdG9wLW9wYWNpdHk9IjEiIG9mZnNldD0iMCIvPjxzdG9wIHN0b3AtY29sb3I9IiNmNmU5ZTkiIHN0b3Atb3BhY2l0eT0iMSIgb2Zmc2V0PSIxIi8+PC9saW5lYXJHcmFkaWVudD48cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMSIgaGVpZ2h0PSIxIiBmaWxsPSJ1cmwoI3ZzZ2cpIiAvPjwvc3ZnPg==);
+  background-image: -webkit-gradient(linear, 0% 100%, 0% 0%, color-stop(0, #FFFBE5), color-stop(1, #FFE023));
+  background-image: -webkit-repeating-linear-gradient(bottom, #FFFBE5 0%, #FFE023 100%);
+  background-image: repeating-linear-gradient(to top, #FFFBE5 0%, #FFE023 100%);
+  background-image: -ms-repeating-linear-gradient(bottom, #FFFBE5 0%, #FFE023 100%);
+}
+.button-theme > span > span:active,
+button[type=submit] > span > span:active {
   background-color: #FFE023;
   background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIHZpZXdCb3g9IjAgMCAxIDEiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjxsaW5lYXJHcmFkaWVudCBpZD0idnNnZyIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiIHgxPSIwJSIgeTE9IjEwMCUiIHgyPSIwJSIgeTI9IjAlIj48c3RvcCBzdG9wLWNvbG9yPSIjZjZlNjJjIiBzdG9wLW9wYWNpdHk9IjEiIG9mZnNldD0iMCIvPjxzdG9wIHN0b3AtY29sb3I9IiNmNmU5ZTkiIHN0b3Atb3BhY2l0eT0iMSIgb2Zmc2V0PSIxIi8+PC9saW5lYXJHcmFkaWVudD48cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMSIgaGVpZ2h0PSIxIiBmaWxsPSJ1cmwoI3ZzZ2cpIiAvPjwvc3ZnPg==);
   background-image: -webkit-gradient(linear, 0% 100%, 0% 0%, color-stop(0, #FFFBE5), color-stop(1, #FFE023));
@@ -1703,6 +1719,16 @@ nav > div > div > div > div ul li a.nav-link:hover span:last-child {
   margin-bottom: 20px;
 }
 /* ====================================================================================== */
+.revizor__uploader-label {
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+}
+@media screen and (max-width: 767px) {
+  .revizor__button-style {
+    width: 270px;
+  }
+}
 .page-num {
   display: flex;
   align-items: flex-end;
@@ -1732,14 +1758,18 @@ nav > div > div > div > div ul li a.nav-link:hover span:last-child {
     font-size: 10px;
   }
 }
-.revizor__button-style {
-  line-height: 48px !important;
-}
 form .p14 {
   font-family: 'BlissPro-Light';
   font-size: 14px;
   line-height: 14px;
   letter-spacing: -0.2px;
+}
+.revizor-delete-button.revizor__x-btn.revizor__x-btn_delete.revizor__x-btn-style.button-theme {
+  color: #f00;
+  line-height: 24px;
+}
+.revizor-delete-button.revizor__x-btn.revizor__x-btn_delete.revizor__x-btn-style.button-theme:before {
+  content: "х";
 }
 .checkbox-block {
   display: inline-block;
@@ -1840,6 +1870,7 @@ input[type="text"]:focus {
   font-weight: bold;
   font-size: 35px;
   text-align: center;
+  color: #F6E783;
   padding-bottom: 3px;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -1864,6 +1895,12 @@ input[type="text"]:focus {
   background-clip: padding-box;
   padding: 18px 80px 35px 80px !important;
 }
+.uws-dialog .uws-dialog__body {
+  padding: 0;
+}
+.uws-dialog .uws-dialog__body p:last-child {
+  margin: 0;
+}
 .uws-dialog .icon-close {
   color: #FFF;
   background: none;
@@ -1887,6 +1924,7 @@ input[type="text"]:focus {
 }
 .uws-dialog h1 {
   font-family: "NautilusPompilius";
+  color: #F6E783;
   padding-bottom: 3px;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -2009,70 +2047,135 @@ input[type="text"]:focus {
 }
 /* Форма подтверждение email и телефона ====================================== */
 #uws-send-confirm-to-email,
-#uws-send-confirm-to-phone {
+#uws-send-confirm-to-email-success,
+#uws-send-confirm-to-phone,
+#uws-send-confirm-to-phone-success {
   width: 490px !important;
 }
 #uws-send-confirm-to-email > div:first-child,
-#uws-send-confirm-to-phone > div:first-child {
+#uws-send-confirm-to-email-success > div:first-child,
+#uws-send-confirm-to-phone > div:first-child,
+#uws-send-confirm-to-phone-success > div:first-child {
   padding-bottom: 20px;
 }
 #uws-send-confirm-to-email > div:last-child,
-#uws-send-confirm-to-phone > div:last-child {
+#uws-send-confirm-to-email-success > div:last-child,
+#uws-send-confirm-to-phone > div:last-child,
+#uws-send-confirm-to-phone-success > div:last-child {
   display: flex;
   justify-content: center;
   flex-direction: column;
 }
 #uws-send-confirm-to-email h1,
-#uws-send-confirm-to-phone h1 {
+#uws-send-confirm-to-email-success h1,
+#uws-send-confirm-to-phone h1,
+#uws-send-confirm-to-phone-success h1 {
   margin: 0;
   line-height: 51px;
 }
 #uws-send-confirm-to-email form,
-#uws-send-confirm-to-phone form {
+#uws-send-confirm-to-email-success form,
+#uws-send-confirm-to-phone form,
+#uws-send-confirm-to-phone-success form {
   display: flex;
   flex-direction: column;
 }
 #uws-send-confirm-to-email form > div,
-#uws-send-confirm-to-phone form > div {
+#uws-send-confirm-to-email-success form > div,
+#uws-send-confirm-to-phone form > div,
+#uws-send-confirm-to-phone-success form > div {
   margin-bottom: 30px;
 }
 @media (max-width: 575px) {
   #uws-send-confirm-to-email,
-  #uws-send-confirm-to-phone {
+  #uws-send-confirm-to-email-success,
+  #uws-send-confirm-to-phone,
+  #uws-send-confirm-to-phone-success {
     width: 290px !important;
     padding: 18px 20px 35px !important;
   }
   #uws-send-confirm-to-email h1,
-  #uws-send-confirm-to-phone h1 {
+  #uws-send-confirm-to-email-success h1,
+  #uws-send-confirm-to-phone h1,
+  #uws-send-confirm-to-phone-success h1 {
+    font-size: 30px;
+    line-height: 37px;
+  }
+}
+/* Форма восстановления пароля ====================================== */
+#uws-reset-password,
+#uws-reset-password-success {
+  width: 490px !important;
+}
+#uws-reset-password > div:first-child,
+#uws-reset-password-success > div:first-child {
+  padding-bottom: 20px;
+}
+#uws-reset-password > div:last-child,
+#uws-reset-password-success > div:last-child {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+#uws-reset-password h1,
+#uws-reset-password-success h1 {
+  margin: 0;
+  line-height: 51px;
+}
+#uws-reset-password form,
+#uws-reset-password-success form {
+  display: flex;
+  flex-direction: column;
+}
+#uws-reset-password form > div,
+#uws-reset-password-success form > div {
+  margin-bottom: 30px;
+}
+#uws-reset-password .button-theme,
+#uws-reset-password-success .button-theme {
+  margin: auto;
+}
+@media (max-width: 575px) {
+  #uws-reset-password,
+  #uws-reset-password-success {
+    width: 290px !important;
+    padding: 18px 20px 35px !important;
+  }
+  #uws-reset-password h1,
+  #uws-reset-password-success h1 {
     font-size: 30px;
     line-height: 37px;
   }
 }
 /* Форма регистрации ====================================== */
-#uws-sign-up {
+#uws-sign-up,
+#uws-sign-up-success {
   width: 600px !important;
 }
-#uws-sign-up > div:nth-child(2) > div:first-child {
+#uws-sign-up > div:nth-child(2) > div:first-child,
+#uws-sign-up-success > div:nth-child(2) > div:first-child {
   display: flex;
   justify-content: space-around;
   padding: 20px;
 }
-#uws-sign-up > div:last-child {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-}
-#uws-sign-up > div:last-child > button {
+#uws-sign-up > div:last-child > button,
+#uws-sign-up-success > div:last-child > button {
+  display: table;
   margin: auto;
 }
-#uws-sign-up h1 {
+#uws-sign-up h1,
+#uws-sign-up-success h1 {
   margin: 0;
   line-height: 51px;
 }
 #uws-sign-up .btn-vk,
+#uws-sign-up-success .btn-vk,
 #uws-sign-up .btn-ok,
+#uws-sign-up-success .btn-ok,
 #uws-sign-up .btn-fb,
-#uws-sign-up .refresh {
+#uws-sign-up-success .btn-fb,
+#uws-sign-up .refresh,
+#uws-sign-up-success .refresh {
   background: none;
   border: none;
   padding: 0;
@@ -2080,64 +2183,82 @@ input[type="text"]:focus {
   cursor: pointer;
   display: table;
 }
-#uws-sign-up form {
+#uws-sign-up form,
+#uws-sign-up-success form {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
 }
-#uws-sign-up form > div {
+#uws-sign-up form > div,
+#uws-sign-up-success form > div {
   margin-bottom: 30px;
   width: calc(50% - 10px) !important;
 }
 #uws-sign-up form > div:nth-child(3),
+#uws-sign-up-success form > div:nth-child(3),
 #uws-sign-up form > div:nth-child(6),
+#uws-sign-up-success form > div:nth-child(6),
 #uws-sign-up form > div:nth-child(7),
-#uws-sign-up form > div:nth-child(8) {
+#uws-sign-up-success form > div:nth-child(7),
+#uws-sign-up form > div:nth-child(8),
+#uws-sign-up-success form > div:nth-child(8) {
   width: 100% !important;
 }
-#uws-sign-up form > div:nth-child(3) input {
+#uws-sign-up form > div:nth-child(3) input,
+#uws-sign-up-success form > div:nth-child(3) input {
   width: calc(50% - 10px) !important;
 }
-#uws-sign-up form > div:nth-child(8) > div {
+#uws-sign-up form > div:nth-child(8) > div,
+#uws-sign-up-success form > div:nth-child(8) > div {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-#uws-sign-up form > div:nth-child(8) > div > * {
+#uws-sign-up form > div:nth-child(8) > div > *,
+#uws-sign-up-success form > div:nth-child(8) > div > * {
   margin: 0;
 }
-#uws-sign-up form > div:nth-child(8) > div > input {
+#uws-sign-up form > div:nth-child(8) > div > input,
+#uws-sign-up-success form > div:nth-child(8) > div > input {
   width: calc(50% - 10px) !important;
 }
-#uws-sign-up form svg {
+#uws-sign-up form svg,
+#uws-sign-up-success form svg {
   background: #fff;
 }
 @media (max-width: 768px) {
-  #uws-sign-up {
+  #uws-sign-up,
+  #uws-sign-up-success {
     width: 530px !important;
     padding: 18px 40px 35px !important;
   }
 }
 @media (max-width: 575px) {
-  #uws-sign-up {
+  #uws-sign-up,
+  #uws-sign-up-success {
     width: 290px !important;
     padding: 18px 20px 35px !important;
   }
-  #uws-sign-up h1 {
+  #uws-sign-up h1,
+  #uws-sign-up-success h1 {
     font-size: 30px;
     line-height: 37px;
   }
-  #uws-sign-up label {
+  #uws-sign-up label,
+  #uws-sign-up-success label {
     width: 213px;
   }
-  #uws-sign-up form > div {
+  #uws-sign-up form > div,
+  #uws-sign-up-success form > div {
     margin-bottom: 15px;
     width: 100% !important;
   }
-  #uws-sign-up form > div:nth-child(3) input {
+  #uws-sign-up form > div:nth-child(3) input,
+  #uws-sign-up-success form > div:nth-child(3) input {
     width: 100% !important;
   }
-  #uws-sign-up form > div:nth-child(8) > div > input {
+  #uws-sign-up form > div:nth-child(8) > div > input,
+  #uws-sign-up-success form > div:nth-child(8) > div > input {
     width: 65px !important;
   }
 }

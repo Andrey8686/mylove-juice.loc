@@ -166,55 +166,12 @@ footer {
     font-size: 12px;
     line-height: 14px;
     text-transform: uppercase;
-
-
-    text-shadow:
-              -0   -4px 0   #A01925,
-              0   -4px 0   #A01925,
-            -0    4px 0   #A01925,
-            0    4px 0   #A01925,
-              -4px -0   0   #A01925,
-              4px -0   0   #A01925,
-            -4px  0   0   #A01925,
-            4px  0   0   #A01925,
-              -1px -4px 0   #A01925,
-              1px -4px 0   #A01925,
-            -1px  4px 0   #A01925,
-            1px  4px 0   #A01925,
-              -4px -1px 0   #A01925,
-              4px -1px 0   #A01925,
-            -4px  1px 0   #A01925,
-            4px  1px 0   #A01925,
-              -2px -4px 0   #A01925,
-              2px -4px 0   #A01925,
-            -2px  4px 0   #A01925,
-            2px  4px 0   #A01925,
-              -4px -2px 0   #A01925,
-              4px -2px 0   #A01925,
-            -4px  2px 0   #A01925,
-            4px  2px 0   #A01925,
-              -3px -4px 0   #A01925,
-              3px -4px 0   #A01925,
-            -3px  4px 0   #A01925,
-            3px  4px 0   #A01925,
-              -4px -3px 0   #A01925,
-              4px -3px 0   #A01925,
-            -4px  3px 0   #A01925,
-            4px  3px 0   #A01925,
-              -4px -4px 0   #A01925,
-              4px -4px 0   #A01925,
-            -4px  4px 0   #A01925,
-            4px  4px 0   #A01925,
-              -4px -4px 0   #A01925,
-              4px -4px 0   #A01925,
-            -4px  4px 0   #A01925,
-            4px  4px 0   #A01925;
+    background: #A3081A;
 
     span {
       white-space: nowrap;
     }
   }
-
 
 
 
@@ -231,6 +188,30 @@ footer {
   }
 
 }
+
+
+
+.footer-zaglushka {
+
+
+
+  p {
+    text-align: left ;
+    text-transform: none;
+    margin: 0;
+  }
+
+
+}
+
+
+
+
+
+
+
+
+
 
 h1, .h1 {
   font-size: 50px;
@@ -372,12 +353,20 @@ a {
 
 
   &:active {
+
     & > span {
       .gradient-v(#FFEE8C, #FFDD02);
       & > span {
-        .gradient-v(#FFE023, #FFFBE5);
+        &, &:active {
+          .gradient-v(#FFE023, #FFFBE5);
+        }
+
       }
     }
+  }
+
+  &  > span  > span:active {
+    .gradient-v(#FFE023, #FFFBE5);
   }
 
 
@@ -2201,6 +2190,23 @@ nav {
 
 
 
+
+
+
+.revizor__uploader-label {
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+}
+.revizor__button-style {
+  @media screen and (max-width: 767px) {
+    width: 270px;
+  }
+}
+
+
+
+
 .page-num {
   display: flex;
   align-items: flex-end;
@@ -2248,9 +2254,7 @@ nav {
 
 
 
-.revizor__button-style {
-  line-height: 48px !important;
-}
+
 
 
 form {
@@ -2262,6 +2266,14 @@ form {
   }
 }
 
+
+.revizor-delete-button.revizor__x-btn.revizor__x-btn_delete.revizor__x-btn-style.button-theme {
+  &:before {
+    content: "х";
+  }
+  color: #f00;
+  line-height: 24px;
+}
 
 
 
@@ -2393,6 +2405,7 @@ input[type="text"]:focus {
     font-weight: bold;
     font-size: 35px;
     text-align: center;
+    color: #F6E783;
     .gradient-text-v(#f6e9e9, #f6e62c);
     margin: 18px 0 11px 0;
     letter-spacing: 2.1px;
@@ -2416,8 +2429,18 @@ input[type="text"]:focus {
   background: #8C181B !important;
   border: 2px solid #FAC93E;
   .border-radius(10px);
-
   padding: 18px 80px 35px 80px !important;
+
+
+  .uws-dialog__body {
+    padding: 0;
+    p:last-child {
+      margin: 0;
+    }
+  }
+
+
+
 
   .icon-close {
     color: #FFF;
@@ -2444,6 +2467,7 @@ input[type="text"]:focus {
 
   h1 {
     font-family: "NautilusPompilius";
+    color: #F6E783;
     .gradient-text-v(#F6F0F0, #F4E63D);
     font-weight: bold;
     font-size: 42px;
@@ -2470,42 +2494,7 @@ input[type="text"]:focus {
 
   }
 
-
-  //.uws-dialog__head, .uws-dialog__body, .uws-dialog__foot {
-  //  padding: 0;
-  //}
-  //
-  //
-  //.uws-dialog__close {
-  //  height: 20px;
-  //  right: 0px;
-  //  top: 6px;
-  //  &::after, &::before {
-  //    background: #FFF;
-  //  }
-  //}
-  //.uws-label {
-  //  color: #FFF;
-  //}
-  //.uws-button_transparent {
-  //  color: #FFF;
-  //}
-  //button[type=submit] {
-  //  .gradient-v(#FFFBE7, #FEDC00);
-  //  font-size: 18px;
-  //  font-family: BlissPro-Heavy;
-  //  text-transform: uppercase;
-  //  border: 4px solid #FAC93E;
-  //  color: #850208;
-  //  padding: 0 30px;
-  //  &:active {
-  //    .gradient-v(#FEDC00, #FFFBE7);
-  //  }
-  //}
 }
-
-
-
 
 
 
@@ -2638,7 +2627,7 @@ input[type="text"]:focus {
 /* Форма подтверждение email и телефона ====================================== */
 
 
-#uws-send-confirm-to-email, #uws-send-confirm-to-phone {
+#uws-send-confirm-to-email,#uws-send-confirm-to-email-success, #uws-send-confirm-to-phone, #uws-send-confirm-to-phone-success {
   width: 490px !important;
 
   & > div {
@@ -2679,10 +2668,59 @@ input[type="text"]:focus {
 }
 
 
+
+/* Форма восстановления пароля ====================================== */
+
+
+#uws-reset-password, #uws-reset-password-success {
+  width: 490px !important;
+
+  & > div {
+    &:first-child {
+      padding-bottom: 20px;
+    }
+    &:last-child {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+    }
+  }
+
+  h1 {
+    margin: 0;
+    line-height: 51px;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    & > div {
+      margin-bottom: 30px;
+    }
+    .uws-error {
+    }
+  }
+
+  .button-theme {
+    margin: auto;
+  }
+
+
+  @media (max-width: 575px) {
+    width: 290px !important;
+    padding: 18px 20px 35px !important;
+    h1 {
+      font-size: 30px;
+      line-height: 37px;
+    }
+  }
+}
+
+
 /* Форма регистрации ====================================== */
 
 
-#uws-sign-up {
+#uws-sign-up, #uws-sign-up-success {
   width: 600px !important;
 
   & > div {
@@ -2695,10 +2733,11 @@ input[type="text"]:focus {
     }
 
     &:last-child {
-      display: flex;
-      justify-content: center;
-      flex-direction: column;
+      //display: flex;
+      //justify-content: center;
+      //flex-direction: column;
       & > button {
+        display: table;
         margin: auto;
       }
     }
