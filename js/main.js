@@ -447,12 +447,14 @@ $.fn.CheckboxTheme = function () {
     $(this).each(function () {
         let main = $(this);
         let mainParent = main.parent();
+        let label = mainParent.find("label");
 
         if (mainParent.hasClass("checkbox-block")) {
             return false;
         }
 
         mainParent.addClass("checkbox-block").prepend("<i></i>");
+        if (main.attr("id").length && label.length) label.attr("for", main.attr("id"));
 
         if (main.is(":checked") && main.is(":disabled")) {
             mainParent.addClass("checked-disabled");

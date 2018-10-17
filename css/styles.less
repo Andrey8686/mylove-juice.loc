@@ -102,7 +102,7 @@ header {
     .h-line {
       height: 3px;
     }
-
+    background-size: 134%;
   }
 
   @media screen and (max-width: 575px) {
@@ -158,6 +158,8 @@ footer {
   left: 0;
   width: 100%;
   background: url("/images/bg.png") bottom center #A3081A;
+
+
   & > div > div > div > div {
     height: 50px;
   }
@@ -176,6 +178,8 @@ footer {
 
 
   @media (max-width: 575px) {
+    background-size: 134%;
+
     & > div > div > div > div {
       height: 25px;
     }
@@ -867,9 +871,7 @@ nav {
         line-height: 17px;
       }
     }
-    .checkbox-block {
-      font-size: 11px;
-    }
+
   }
   @media screen and (max-width: 767px) {
     .nicescroll-block {
@@ -1138,16 +1140,6 @@ nav {
 
 
 .page-zaglushka {
-  @media (min-width: 768px) {
-    padding-bottom: 100px;
-  }
-  @media (max-width: 767px) {
-    padding-bottom: 0;
-    height: auto !important;
-  }
-
-
-
 
   .timer {
     display: table;
@@ -1182,12 +1174,12 @@ nav {
         }
       }
     }
-
     @media (max-width: 1199px) and (min-width: 992px) {
       h2 {
         font-size: 61px;
       }
     }
+
     @media (max-width: 991px) and (min-width: 768px), (max-width: 575px) {
       h2 {
         font-size: 43px;
@@ -1273,14 +1265,97 @@ nav {
       bottom: auto;
     }
   }
+
+
+
+
+
+
+
+
+
+  .pack-img {
+    display: table;
+    margin: 40px auto 0;
+  }
+
+
+  .img-try {
+    max-width: 100%;
+    display: table;
+    margin: 40px auto 40px;
+  }
+
+
+
+
+  @media screen and (max-width: 1399px) {
+    .pack-img {
+      max-width: 70%;
+      margin: 10px auto 0;
+    }
+    .img-try {
+      margin: 10px auto 10px;
+    }
+
+    .timer {
+      h2 {
+        font-size: 43px;
+      }
+      & > div {
+        & > div {
+          & > div {
+            &:first-child {
+              width: 94px;
+              height: 79px;
+              font-size: 55px;
+              line-height: 66px;
+            }
+            &:last-child {
+              font-size: 25px;
+            }
+          }
+        }
+      }
+    }
+
+  }
+
+
+
+  @media (max-width: 991px) {
+    .pack-img {
+      max-width: 100%;
+    }
+  }
+
+  @media (min-width: 768px) {
+    padding-bottom: 100px;
+  }
+  @media (max-width: 767px) {
+    padding-bottom: 0;
+    height: auto !important;
+  }
 }
 
-
+.header-zaglushka {
+  @media screen and (max-width: 1399px) {
+    .logo img {
+      height: 70px;
+    }
+    & > div > div > div > div {
+      height: 77px;
+    }
+  }
+}
 
 
 .page-body-zaglushka {
   @media screen and (max-width: 1199px) {
     padding-bottom: 58px !important;
+  }
+  @media (max-width: 1399px) and (min-width: 992px) {
+    padding-top: 82px !important;
   }
   @media screen and (max-width: 991px) {
     padding-bottom: 72px !important;
@@ -2317,6 +2392,7 @@ form {
   line-height: 18px;
   display: flex;
   align-items: flex-start;
+  justify-content: space-between;
 
   i {
     background: url(/images/checkbox.png) left top no-repeat;
@@ -2350,6 +2426,9 @@ form {
   }
 
   input {
+    position: absolute;
+    top: -10000px;
+    left: -10000px;
     opacity: 0;
   }
 }
