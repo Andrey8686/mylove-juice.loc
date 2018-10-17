@@ -97,7 +97,10 @@ $.fn.TimeLeft = function () {
 
     let date1 = new Date("11/1/2018");
 
-    setInterval(function () {
+    setTime();
+    setInterval(setTime, 1000);
+
+    function setTime() {
         let date2 = new Date();
         let t = Math.abs((date1.getTime() - date2.getTime()) / 1000);
 
@@ -108,8 +111,8 @@ $.fn.TimeLeft = function () {
         d.text(dd);
         h.text(hh < 10 ? "0"+ hh : hh);
         m.text(mm < 10 ? "0"+ mm : mm);
+    }
 
-    }, 1000);
 };
 
 
