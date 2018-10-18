@@ -1037,8 +1037,15 @@ nav > div > div > div > div ul li a.nav-link:hover span:last-child {
   }
 }
 .page-zaglushka .pack-img {
+  position: relative;
   display: table;
   margin: 40px auto 0;
+}
+.page-zaglushka .pack-img a {
+  position: absolute;
+  bottom: 7.1%;
+  right: 13%;
+  font-size: 14px;
 }
 .page-zaglushka .img-try {
   max-width: 100%;
@@ -1049,6 +1056,9 @@ nav > div > div > div > div ul li a.nav-link:hover span:last-child {
   .page-zaglushka .pack-img {
     max-width: 70%;
     margin: 10px auto 0;
+  }
+  .page-zaglushka .pack-img a {
+    font-size: 11px;
   }
   .page-zaglushka .img-try {
     margin: 10px auto 10px;
@@ -1065,6 +1075,9 @@ nav > div > div > div > div ul li a.nav-link:hover span:last-child {
   .page-zaglushka .timer > div > div > div:last-child {
     font-size: 25px;
   }
+  .page-zaglushka .pack-img a {
+    font-size: 9px;
+  }
 }
 @media (max-width: 991px) {
   .page-zaglushka .pack-img {
@@ -1080,6 +1093,9 @@ nav > div > div > div > div ul li a.nav-link:hover span:last-child {
   .page-zaglushka {
     padding-bottom: 0;
     height: auto !important;
+  }
+  .page-zaglushka .pack-img a {
+    display: none;
   }
 }
 @media (max-width: 1399px) and (min-width: 992px) {

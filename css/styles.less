@@ -1275,8 +1275,15 @@ nav {
 
 
   .pack-img {
+    position: relative;
     display: table;
     margin: 40px auto 0;
+    a {
+      position: absolute;
+      bottom: 7.1%;
+      right: 13%;
+      font-size: 14px;
+    }
   }
 
 
@@ -1293,6 +1300,9 @@ nav {
     .pack-img {
       max-width: 70%;
       margin: 10px auto 0;
+      a {
+        font-size: 11px;
+      }
     }
     .img-try {
       margin: 10px auto 10px;
@@ -1318,10 +1328,16 @@ nav {
         }
       }
     }
-
+    .pack-img {
+      a {
+        font-size: 9px;
+      }
+    }
   }
 
+  @media screen and (max-width: 1199px) {
 
+  }
 
 
   @media (max-width: 991px) {
@@ -1332,10 +1348,17 @@ nav {
 
   @media (min-width: 768px) {
     padding-bottom: 100px;
+
+
   }
   @media (max-width: 767px) {
     padding-bottom: 0;
     height: auto !important;
+    .pack-img {
+      a {
+        display: none;
+      }
+    }
   }
 }
 
