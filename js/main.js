@@ -15,6 +15,17 @@ $(function ($) {
     });
 
 
+
+
+    $(document).mouseup(function (e) {
+        var menuBtn = $(".navbar > button");
+        var container = $(".navbar > div");
+        if (container.has(e.target).length === 0 && menuBtn.attr("aria-expanded") == "true" && $(window).width() < 992){
+            menuBtn.click();
+        }
+    });
+
+
     NiceText();
 
 
@@ -53,7 +64,7 @@ $(function ($) {
         xl: 300,
         lg: 300,
         md: 260,
-        sm: 300,
+        sm: "auto",
         xs: "auto",
     });
 
@@ -62,10 +73,10 @@ $(function ($) {
 
 
     $("input[type=file]").each(function () {
-        let input = $(this);
-        let label = $(this).prev().find("> span");
+        var input = $(this);
+        var label = $(this).prev().find("> span");
         input.change(function () {
-            let ar = $(this).val().split('\\');
+            var ar = $(this).val().split('\\');
             label.text(ar[ar.length - 1]);
         });
     });
@@ -82,6 +93,13 @@ $(function ($) {
 
 
     $(".timer").TimeLeft();
+    $("[data-reason]").Reason();
+
+
+
+    $(".feedback__form").FormValidation();
+
+
 
 
 });
@@ -89,24 +107,125 @@ $(function ($) {
 
 
 
-$.fn.TimeLeft = function () {
-    let main = $(this);
-    let d = main.find(".day");
-    let h = main.find(".hour");
-    let m = main.find(".min");
 
-    let date1 = new Date("11/1/2018");
+
+$.fn.FormValidation = function () {
+    var main = $(this);
+    var submit = main.find("button, :submit, :button");
+    var fields = main.find("[required]");
+
+    var errorWin = "" +
+        "<div class=\"modal fade\" id=\"form-error\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"\" aria-hidden=\"true\">\n" +
+        "    <div class=\"modal-dialog modal-dialog-centered\" role=\"document\">\n" +
+        "        <div class=\"modal-content\">\n" +
+        "            <span class=\"icon-close\" data-dismiss=\"modal\"></span>\n" +
+        "            <h2>Ошибка!</h2>\n" +
+        "            <div class=\"form-error-text ml-4 mr-4 mb-4\"></div>\n" +
+        "        </div>\n" +
+        "    </div>\n" +
+        "</div>";
+
+    if (!$("body").find(".form-error").length) $("body").append(errorWin);
+
+    submit.click(function () {
+        var errAr = [];
+
+        for (var i = 0; i < fields.length; i++) {
+            var fild = fields[i];
+            if (fild.tagName.toLowerCase() == "input") {
+                if ($(fild).attr("type") == "email") {
+                    if ($(fild).data("ifempty").length && !$(fild).val().length) {
+                        errAr.push($(fild).data("ifempty"));
+                    }
+                    else if ($(fild).data("ifnotmatch").length && !$(fild).val().match(/^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/)) {
+                        errAr.push($(fild).data("ifnotmatch"));
+                    }
+                }
+                else if ($(fild).attr("type") == "checkbox") {
+                    if ($(fild).data("ifempty").length && !$(fild).is(":checked")) {
+                        errAr.push($(fild).data("ifempty"));
+                    }
+                }
+                else if ($(fild).attr("type") == "file") {
+                    if ($(fild).data("ifempty").length && !$(fild).val().length) {
+                        errAr.push($(fild).data("ifempty"));
+                    }
+                    else if ($(fild).data("ifnotmatch").length && $(fild).val().length && $(fild).attr("accept").length && !($(fild).attr("accept").indexOf(fild.files[0].type) + 1)) {
+                        errAr.push($(fild).data("ifnotmatch"));
+                    }
+                }
+            }
+            else if (fild.tagName.toLowerCase() == "select") {
+                if ($(fild).data("ifempty").length && !$(fild).val().length) {
+                    errAr.push($(fild).data("ifempty"));
+                }
+            }
+            else if (fild.tagName.toLowerCase() == "textarea") {
+                if ($(fild).data("ifempty").length && !$(fild).val().length) {
+                    errAr.push($(fild).data("ifempty"));
+                }
+            }
+        }
+
+
+        if (errAr.length) {
+            $("#form-error").modal("show").find(".modal-content > div").html(errAr.join(",<br />") + ".");
+            return false;
+        }
+    });
+};
+
+
+
+
+
+
+
+
+
+
+$.fn.Reason = function () {
+    var main = $(this);
+    var body = $("body");
+
+    var reason = body.find(".lk-reason");
+
+    if (!reason.length) {
+        body.append("<div class='lk-reason'><div><span></span><img src='/images/reason-arrow.png' alt='' /></div></div>");
+        reason = body.find(".lk-reason");
+    }
+
+    main.mousemove(function (e) {
+        reason.css({top:e.pageY - 40,left:e.pageX}).show().find("span").text($(this).data("reason"));
+    });
+    main.mouseleave(function (e) {
+        reason.hide();
+    });
+
+};
+
+
+
+
+
+$.fn.TimeLeft = function () {
+    var main = $(this);
+    var d = main.find(".day");
+    var h = main.find(".hour");
+    var m = main.find(".min");
+
+    var date1 = new Date("11/1/2018");
 
     setTime();
     setInterval(setTime, 1000);
 
     function setTime() {
-        let date2 = new Date();
-        let t = Math.abs((date1.getTime() - date2.getTime()) / 1000);
+        var date2 = new Date();
+        var t = Math.abs((date1.getTime() - date2.getTime()) / 1000);
 
-        let dd = Math.floor(t / (3600 * 24));
-        let hh = Math.floor((t - 3600 * 24 * dd) / 3600);
-        let mm = Math.floor((t - (3600 * 24 * dd + 3600 * hh)) / 60) + 1;
+        var dd = Math.floor(t / (3600 * 24));
+        var hh = Math.floor((t - 3600 * 24 * dd) / 3600);
+        var mm = Math.floor((t - (3600 * 24 * dd + 3600 * hh)) / 60) + 1;
 
         d.text(dd);
         h.text(hh < 10 ? "0"+ hh : hh);
@@ -127,7 +246,7 @@ $.fn.TimeLeft = function () {
 
 
 
-let AskQuestion = {
+var AskQuestion = {
     Flag: false,
     IsOpen: false,
     Init: function () {
@@ -167,27 +286,45 @@ let AskQuestion = {
 
 
 
-let UwsWidget = {
+var UwsWidget = {
     InitDefault: function() {
+        UwsWidget.buttons = {}
+        UwsWidget.inputText = {};
+
+
+
         UwsWidget.main = $(".uws-widget");
-        UwsWidget.inputText = UwsWidget.main.find("input[type=email], input[type=password], input[type=tel], input[type=text]");
+        UwsWidget.inputText = UwsWidget.main.find("input[name=captcha], input[type=email], input[type=password], input[type=tel], input[type=text]");
         UwsWidget.buttons = UwsWidget.main.find("button");
         UwsWidget.main.find(".uws-dialog *[class!=checkbox-block]").removeAttr("class");
 
 
         $(UwsWidget.buttons[0]).addClass("icon-close");
     },
+    ClosingListener: function() {
+        $("body").removeAttr("style").removeClass("modal-open");
+    },
+    AddClosingListener: function() {
+        $("body").addClass("modal-open");
+        $(".uws-dialog-backdrop").click(UwsWidget.ClosingListener);
+        $(UwsWidget.buttons[0]).click(UwsWidget.ClosingListener);
+    },
     SetPlaceholder: function() {
         UwsWidget.inputText.each(function () {
-            let label = $($(this).prev("label")).remove();
+            var label = $($(this).prev("label")).remove();
             $(this).attr("placeholder", label.text());
         });
     },
     SignIn: function () {
         this.intervalId = setInterval(function () {
             UwsWidget.InitDefault();
-            if (UwsWidget.buttons.length == 9) {
+            if (UwsWidget.inputText.length == 2 && UwsWidget.buttons.length == 9) {
                 clearInterval(UwsWidget.intervalId);
+
+
+                UwsWidget.AddClosingListener();
+
+
 
                 UwsWidget.SetPlaceholder();
 
@@ -218,8 +355,12 @@ let UwsWidget = {
     SignUp: function () {
         this.intervalId = setInterval(function () {
             UwsWidget.InitDefault();
-            if (UwsWidget.buttons.length == 8) {
+
+
+            if (UwsWidget.inputText.length == 6 && UwsWidget.buttons.length == 8) {
                 clearInterval(UwsWidget.intervalId);
+
+                UwsWidget.AddClosingListener();
 
                 UwsWidget.SetPlaceholder();
 
@@ -248,8 +389,10 @@ let UwsWidget = {
     RestorePassword: function () {
         this.intervalId = setInterval(function () {
             UwsWidget.InitDefault();
-            if (UwsWidget.inputText.length) {
+            if (UwsWidget.buttons.length == 3 && UwsWidget.inputText.length == 2) {
                 clearInterval(UwsWidget.intervalId);
+
+                UwsWidget.AddClosingListener();
 
                 UwsWidget.SetPlaceholder();
 
@@ -267,9 +410,10 @@ let UwsWidget = {
     DropPassword: function () {
         this.intervalId = setInterval(function () {
             UwsWidget.InitDefault();
-
             if (UwsWidget.inputText.length == 2) {
                 clearInterval(UwsWidget.intervalId);
+
+                UwsWidget.AddClosingListener();
 
                 UwsWidget.SetPlaceholder();
 
@@ -280,8 +424,10 @@ let UwsWidget = {
     ConfirmEmail: function () {
         this.intervalId = setInterval(function () {
             UwsWidget.InitDefault();
-            if (UwsWidget.inputText.length) {
+            if (UwsWidget.buttons.length == 2 && UwsWidget.inputText.length == 1) {
                 clearInterval(UwsWidget.intervalId);
+
+                UwsWidget.AddClosingListener();
 
                 UwsWidget.SetPlaceholder();
 
@@ -296,6 +442,8 @@ let UwsWidget = {
             UwsWidget.InitDefault();
             if (UwsWidget.inputText.length) {
                 clearInterval(UwsWidget.intervalId);
+
+                UwsWidget.AddClosingListener();
 
                 UwsWidget.SetPlaceholder();
 
@@ -314,7 +462,7 @@ let UwsWidget = {
 
 
 $.fn.niceScrollCor = function (e) {
-    let main = $(this);
+    var main = $(this);
 
 
     if (main.length) {
@@ -327,7 +475,7 @@ $.fn.niceScrollCor = function (e) {
 
 
         function Check() {
-            let w = $(window);
+            var w = $(window);
             if (w.width() >= 1200) {
                 main.height(e.xl == "auto" ? "auto" : w.height() - e.xl);
             }
@@ -355,12 +503,12 @@ function c(t) {
 }
 
 $.fn.niceScrollCor2 = function (e) {
-    let main = $(this);
+    var main = $(this);
 
 
     if (main.length) {
 
-        let idI = setInterval(function () {
+        var idI = setInterval(function () {
             main.height(1);
         }, 10);
 
@@ -377,7 +525,7 @@ $.fn.niceScrollCor2 = function (e) {
         function Check() {
             clearInterval(idI);
 
-            let w = $("main");
+            var w = $("main");
             if (w.width() >= 1200) {
                 main.height(e.xl == "auto" ? "auto" : w.height() - e.xl);
             }
@@ -403,11 +551,25 @@ $.fn.niceScrollCor2 = function (e) {
 
 
 $.fn.niceScrollExt = function (e) {
-    let main = $(this);
+    var main = $(this);
+    var wraper = $(this).find("> div");
+
+
     if (main.length) {
         main.niceScroll(e);
         setInterval(function () {
             main.getNiceScroll().resize();
+            if (main.height() >= wraper.height()) {
+                $(".nicescroll-rails-vr").hide();
+                main.css({
+                    "touch-action" : "manipulation"
+                });
+            } else {
+                $(".nicescroll-rails-vr").show();
+                main.css({
+                    "touch-action" : "none"
+                });
+            }
         }, 100);
     }
 };
@@ -429,7 +591,7 @@ function TitlePageHtemeInit() {
 
 function NiceText() {
     $(".nice-text").each(function () {
-        let main = $(this);
+        var main = $(this);
         if (!main.find(".title-page-shadow").length) {
             main.html(main.html() + "<span class=\"nice-text-shadow\">" + main.html() + "</span>");
         }
@@ -445,16 +607,16 @@ $.fn.hasAttr = function (name) {
 
 $.fn.CheckboxTheme = function () {
     $(this).each(function () {
-        let main = $(this);
-        let mainParent = main.parent();
-        let label = mainParent.find("label");
+        var main = $(this);
+        var  mainParent = main.parent();
+        var label = mainParent.find("label");
 
         if (mainParent.hasClass("checkbox-block")) {
             return false;
         }
 
         mainParent.addClass("checkbox-block").prepend("<i></i>");
-        if (main.attr("id").length && label.length) label.attr("for", main.attr("id"));
+        if (main.hasAttr("id") && label.length) label.attr("for", main.attr("id"));
 
         if (main.is(":checked") && main.is(":disabled")) {
             mainParent.addClass("checked-disabled");
@@ -550,7 +712,7 @@ var SelectTheme = {
                 main.find("[selected]").prop("selected", false);
                 main.parent().find("[class=selected]").removeAttr("class");
                 $(this).addClass("selected");
-                main.parent().find(".ts_selected_item").html(main.find("[value=" + $(this).attr("value") + "]").prop("selected", true).html());
+                main.parent().find(".ts_selected_item").html(main.find($(this).attr("value").length ? "[value=" + $(this).attr("value") + "]" : "option:first-child").prop("selected", true).html());
                 $(this).parent().hide();
 
             });

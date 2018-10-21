@@ -359,23 +359,23 @@
 
 
 
-                    <form>
+                    <form action="" class="feedback__form" method="post">
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Ваш e-mail">
+                            <input type="email" class="form-control" required="required" placeholder="Ваш e-mail" data-ifempty="Заполни поле 'E-mail'" data-ifnotmatch="Напиши корректный почтовый адрес'">
                         </div>
                         <div class="form-group">
-                            <select class="form-control" name="qwe">
-                                <option value="1">Выберите тему сообщения</option>
-                                <option value="2">Выберите тему сообщения</option>
-                                <option value="3">Выберите тему сообщения</option>
-                                <option value="4">Выберите тему сообщения</option>
-                                <option value="5">Выберите тему сообщения</option>
-                                <option value="6">Выберите тему сообщения</option>
-                                <option value="7">Выберите тему сообщения</option>
+                            <select class="form-control" name="qwe" required="required" data-ifempty="Выбери какуюнить тему">
+                                <option value>Выберите тему сообщения0</option>
+                                <option value="2">Выберите тему сообщения1</option>
+                                <option value="3">Выберите тему сообщения2</option>
+                                <option value="4">Выберите тему сообщения3</option>
+                                <option value="5">Выберите тему сообщения4</option>
+                                <option value="6">Выберите тему сообщения5</option>
+                                <option value="7">Выберите тему сообщения6</option>
                             </select>
                         </div>
                         <div class="form-group">
-                            <textarea class="form-control" name="asd" rows="3" placeholder="Текст сообщения"></textarea>
+                            <textarea class="form-control" name="asd" rows="3" placeholder="Текст сообщения" required="required" data-ifempty="Напиши ченить в 'Текст сообщения'"></textarea>
                         </div>
                         <div class="form-group">
                             <p class="p14">
@@ -384,15 +384,15 @@
                             </p>
                         </div>
                         <div class="form-group">
-                            <label class="d-table ml-auto" for="file"><span>Прикрепить файл</span>&nbsp;&nbsp;&nbsp;<i class="icon-clip"></i></label>
-                            <input id="file" type="file">
+                            <label class="d-table ml-auto" for="file" ><span>Прикрепить файл</span>&nbsp;&nbsp;&nbsp;<i class="icon-clip"></i></label>
+                            <input id="file" type="file" required="required" accept="application/pdf, image/jpeg, image/png" data-ifempty="" data-ifnotmatch="Не могу отправить этот файл">
                         </div>
                         <div class="form-group">
                             <input type="checkbox">
                             <label>Я не робот</label>
                         </div>
                         <div class="form-group">
-                            <input type="checkbox">
+                            <input type="checkbox" required="required" data-ifempty="Необходимо поставить галочку Я СОГЛАСЕН">
                             <label>Я согласен на обработку моих данных</label>
                         </div>
 
@@ -461,7 +461,6 @@
         </div>
     </div>
 </div>
-
 
 
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
