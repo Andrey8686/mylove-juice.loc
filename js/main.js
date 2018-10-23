@@ -134,34 +134,34 @@ $.fn.FormValidation = function () {
             var fild = fields[i];
             if (fild.tagName.toLowerCase() == "input") {
                 if ($(fild).attr("type") == "email") {
-                    if ($(fild).data("ifempty").length && !$(fild).val().length) {
+                    if ($(fild).hasAttr("data-ifempty") && $(fild).data("ifempty").length && !$(fild).val().length) {
                         errAr.push($(fild).data("ifempty"));
                     }
-                    else if ($(fild).data("ifnotmatch").length && !$(fild).val().match(/^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/)) {
+                    else if ($(fild).hasAttr("data-ifnotmatch") && $(fild).data("ifnotmatch").length && !$(fild).val().match(/^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/)) {
                         errAr.push($(fild).data("ifnotmatch"));
                     }
                 }
                 else if ($(fild).attr("type") == "checkbox") {
-                    if ($(fild).data("ifempty").length && !$(fild).is(":checked")) {
+                    if ($(fild).hasAttr("data-ifempty") && $(fild).data("ifempty").length && !$(fild).is(":checked")) {
                         errAr.push($(fild).data("ifempty"));
                     }
                 }
                 else if ($(fild).attr("type") == "file") {
-                    if ($(fild).data("ifempty").length && !$(fild).val().length) {
+                    if ($(fild).hasAttr("data-ifempty") && $(fild).data("ifempty").length && !$(fild).val().length) {
                         errAr.push($(fild).data("ifempty"));
                     }
-                    else if ($(fild).data("ifnotmatch").length && $(fild).val().length && $(fild).attr("accept").length && !($(fild).attr("accept").indexOf(fild.files[0].type) + 1)) {
+                    else if ($(fild).hasAttr("data-ifnotmatch") && $(fild).data("ifnotmatch").length && $(fild).val().length && $(fild).attr("accept").length && !($(fild).attr("accept").indexOf(fild.files[0].type) + 1)) {
                         errAr.push($(fild).data("ifnotmatch"));
                     }
                 }
             }
             else if (fild.tagName.toLowerCase() == "select") {
-                if ($(fild).data("ifempty").length && !$(fild).val().length) {
+                if ($(fild).hasAttr("data-ifempty") && $(fild).data("ifempty").length && !$(fild).val().length) {
                     errAr.push($(fild).data("ifempty"));
                 }
             }
             else if (fild.tagName.toLowerCase() == "textarea") {
-                if ($(fild).data("ifempty").length && !$(fild).val().length) {
+                if ($(fild).hasAttr("data-ifempty") && $(fild).data("ifempty").length && !$(fild).val().length) {
                     errAr.push($(fild).data("ifempty"));
                 }
             }
@@ -366,6 +366,8 @@ var UwsWidget = {
 
                 UwsWidget.main.find("input[type=radio]").RadioTheme();
                 UwsWidget.main.find("input[type=checkbox]").CheckboxTheme();
+
+                $(UwsWidget.main.find(".checkbox-block label")[0]).html("Я согласен с <a href=\"//mylove-juice.ru/files/rules.pdf\" target=\"_blank\">Правилами Акции</a>");
 
                 UwsWidget.main.find("input[name=captcha]").attr("type", "text");
 

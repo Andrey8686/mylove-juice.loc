@@ -880,6 +880,9 @@ nav {
     }
   }
 
+  .form-group {
+    margin-bottom: 0.5rem;
+  }
 
   input[type=file] {
     opacity: 0;
@@ -901,7 +904,10 @@ nav {
   }
 
   textarea {
-    height: 140px !important;
+    height: 35px !important;
+    &:focus {
+      height: 140px !important;
+    }
   }
 
   .feedback__form-errors {
@@ -3188,7 +3194,7 @@ input[type=text], input[type=tel], input[type=password], input[type=email], text
   -khtml-user-select: none;
   -webkit-user-select: none;
   user-select: none;
-  margin: 0 0 20px 0;
+  margin: 0;
 
   & > div {
     background: #A3081A;

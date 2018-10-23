@@ -749,6 +749,9 @@ nav > div > div > div > div ul li a.nav-link:hover span:last-child {
   line-height: 22px;
   padding: 0 0 0 27px;
 }
+.page-pomosch .form-group {
+  margin-bottom: 0.5rem;
+}
 .page-pomosch input[type=file] {
   opacity: 0;
   position: absolute;
@@ -763,6 +766,9 @@ nav > div > div > div > div ul li a.nav-link:hover span:last-child {
   text-decoration: none;
 }
 .page-pomosch textarea {
+  height: 35px !important;
+}
+.page-pomosch textarea:focus {
   height: 140px !important;
 }
 .page-pomosch .feedback__form-errors {
@@ -2585,7 +2591,7 @@ textarea::-ms-input-placeholder {
   -khtml-user-select: none;
   -webkit-user-select: none;
   user-select: none;
-  margin: 0 0 20px 0;
+  margin: 0;
 }
 .theme_select > div {
   background: #A3081A;
