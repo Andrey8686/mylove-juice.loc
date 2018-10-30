@@ -431,6 +431,7 @@ button[type=submit].disabled:active > span > span {
 }
 [data-reason] {
   cursor: help;
+  text-decoration: underline;
 }
 .lk-reason {
   position: absolute;
@@ -732,6 +733,9 @@ nav > div > div > div > div ul li a.nav-link:hover span:last-child {
   color: #FFDC00;
 }
 /* ====================================================================================== */
+#form-error .form-error-text {
+  text-align: center;
+}
 .page-pomosch {
   padding-bottom: 30px;
 }
@@ -766,10 +770,7 @@ nav > div > div > div > div ul li a.nav-link:hover span:last-child {
   text-decoration: none;
 }
 .page-pomosch textarea {
-  height: 35px !important;
-}
-.page-pomosch textarea:focus {
-  height: 140px !important;
+  height: 100px !important;
 }
 .page-pomosch .feedback__form-errors {
   color: #FFA9A9;
@@ -825,6 +826,7 @@ nav > div > div > div > div ul li a.nav-link:hover span:last-child {
 }
 .page-nome .love-mark img {
   max-width: 100%;
+  width: 100%;
 }
 .page-nome .main-prize-block .try {
   max-width: 100%;
@@ -982,7 +984,6 @@ nav > div > div > div > div ul li a.nav-link:hover span:last-child {
   }
   .page-nome .page-home-line > .container {
     display: table;
-    width: auto;
   }
 }
 @media (max-width: 767px) and (min-width: 576px) {
@@ -1521,6 +1522,16 @@ nav > div > div > div > div ul li a.nav-link:hover span:last-child {
     width: 246px;
   }
 }
+@media (min-width: 992px) and (max-width: 1199px) {
+  .page-lk .carousel .carousel-item.active,
+  .page-lk .carousel .carousel-item:first-child > div {
+    width: 214px;
+  }
+  .page-lk .carousel .carousel-item,
+  .page-lk .carousel .carousel-item:last-child > div {
+    width: 246px;
+  }
+}
 @media screen and (max-width: 1199px) {
   .page-lk a.button-theme.ml-auto > span > span,
   .page-lk a.button-theme.m-auto > span > span {
@@ -1829,6 +1840,9 @@ nav > div > div > div > div ul li a.nav-link:hover span:last-child {
   background-clip: padding-box;
 }
 @media (min-width: 992px) {
+  .page-priz .img-fluid {
+    width: 100%;
+  }
   .page-priz .carousel .carousel-inner {
     display: flex;
     justify-content: space-around;
@@ -1864,6 +1878,7 @@ nav > div > div > div > div ul li a.nav-link:hover span:last-child {
   .page-priz .carousel .slide {
     height: 100%;
     display: flex;
+    align-items: center;
     flex-direction: column;
   }
 }
@@ -1881,6 +1896,7 @@ nav > div > div > div > div ul li a.nav-link:hover span:last-child {
   .page-priz .carousel .slide {
     height: 100%;
     display: flex;
+    align-items: center;
     flex-direction: column;
   }
   .page-priz .carousel .slide img {

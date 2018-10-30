@@ -318,7 +318,7 @@ var UwsWidget = {
     SignIn: function () {
         this.intervalId = setInterval(function () {
             UwsWidget.InitDefault();
-            if (UwsWidget.inputText.length == 2 && UwsWidget.buttons.length == 9) {
+            if (UwsWidget.inputText.length == 2 && UwsWidget.buttons.length == 8) {
                 clearInterval(UwsWidget.intervalId);
 
 
@@ -333,13 +333,12 @@ var UwsWidget = {
                 $(UwsWidget.buttons[1]).addClass("btn-fb").html("<img src='/images/btn-fb.png'>").attr("onclick", "UwsWidget.CheckForm()");
                 $(UwsWidget.buttons[2]).addClass("btn-ok").html("<img src='/images/btn-ok.png'>").attr("onclick", "UwsWidget.CheckForm()");
                 $(UwsWidget.buttons[3]).addClass("btn-vk").html("<img src='/images/btn-vk.png'>").attr("onclick", "UwsWidget.CheckForm()");
-                $(UwsWidget.buttons[4]).hide();
 
-                $(UwsWidget.buttons[5]).addClass("button-theme order-1").html("<span><span>" + $(UwsWidget.buttons[5]).text() + "</span></span>");
-                $(UwsWidget.buttons[7]).addClass("button-theme order-4").html("<span><span>" + $(UwsWidget.buttons[7]).text() + "</span></span>").attr("onclick", "UwsWidget.SignUp()");
+                $(UwsWidget.buttons[4]).addClass("button-theme order-1").html("<span><span>" + $(UwsWidget.buttons[4]).text() + "</span></span>");
+                $(UwsWidget.buttons[6]).addClass("button-theme order-4").html("<span><span>" + $(UwsWidget.buttons[6]).text() + "</span></span>").attr("onclick", "UwsWidget.SignUp()");
 
-                $(UwsWidget.buttons[6]).addClass("btn btn-link order-2").attr("onclick", "UwsWidget.RestorePassword()");
-                $(UwsWidget.buttons[8]).addClass("btn btn-link order-3").attr("onclick", "UwsWidget.ConfirmEmail()");
+                $(UwsWidget.buttons[5]).addClass("btn btn-link order-2").attr("onclick", "UwsWidget.RestorePassword()");
+                $(UwsWidget.buttons[7]).addClass("btn btn-link order-3").attr("onclick", "UwsWidget.ConfirmEmail()");
             }
         }, 10);
     },
@@ -357,7 +356,7 @@ var UwsWidget = {
             UwsWidget.InitDefault();
 
 
-            if (UwsWidget.inputText.length == 6 && UwsWidget.buttons.length == 8) {
+            if (UwsWidget.inputText.length == 6 && UwsWidget.buttons.length == 7) {
                 clearInterval(UwsWidget.intervalId);
 
                 UwsWidget.AddClosingListener();
@@ -376,15 +375,14 @@ var UwsWidget = {
                 $(UwsWidget.buttons[1]).addClass("btn-fb").html("<img src='/images/btn-fb.png'>").attr("onclick", "UwsWidget.CheckForm()");
                 $(UwsWidget.buttons[2]).addClass("btn-ok").html("<img src='/images/btn-ok.png'>").attr("onclick", "UwsWidget.CheckForm()");
                 $(UwsWidget.buttons[3]).addClass("btn-vk").html("<img src='/images/btn-vk.png'>").attr("onclick", "UwsWidget.CheckForm()");
-                $(UwsWidget.buttons[4]).hide();
 
 
 
-                $(UwsWidget.buttons[5]).addClass("refresh").html("<span class='icon-refresh'><span>");
+                $(UwsWidget.buttons[4]).addClass("refresh").html("<span class='icon-refresh'><span>");
 
-                $(UwsWidget.buttons[6]).addClass("button-theme").html("<span><span>" + $(UwsWidget.buttons[6]).text() + "</span></span>");
+                $(UwsWidget.buttons[5]).addClass("button-theme").html("<span><span>" + $(UwsWidget.buttons[5]).text() + "</span></span>");
 
-                $(UwsWidget.buttons[7]).addClass("btn btn-link").attr("onclick", "UwsWidget.SignIn()");
+                $(UwsWidget.buttons[6]).addClass("btn btn-link").attr("onclick", "UwsWidget.SignIn()");
             }
         }, 10);
     },

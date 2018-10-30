@@ -490,6 +490,7 @@ a {
 
 [data-reason] {
   cursor: help;
+  text-decoration: underline;
 }
 .lk-reason {
   position: absolute;
@@ -859,6 +860,12 @@ nav {
 /* ====================================================================================== */
 
 
+#form-error {
+  .form-error-text {
+    text-align: center;
+  }
+}
+
 
 
 .page-pomosch {
@@ -904,10 +911,10 @@ nav {
   }
 
   textarea {
-    height: 35px !important;
-    &:focus {
-      height: 140px !important;
-    }
+    height: 100px !important;
+    //&:focus {
+    //  height: 140px !important;
+    //}
   }
 
   .feedback__form-errors {
@@ -990,6 +997,7 @@ nav {
     margin: 11px auto 0;
     img {
       max-width: 100%;
+      width: 100%;
     }
   }
 
@@ -1169,7 +1177,7 @@ nav {
     .page-home-line {
       & > .container {
         display: table;
-        width: auto;
+        //width: auto;
       }
     }
   }
@@ -1898,7 +1906,18 @@ nav {
 
 
 
-
+  @media (min-width: 992px) and (max-width: 1199px) {
+    .carousel {
+      .carousel-item {
+        &.active, &:first-child > div {
+          width: 214px;
+        }
+        &, &:last-child > div {
+          width: 246px;
+        }
+      }
+    }
+  }
 
 
   @media screen and (max-width: 1199px) {
@@ -2282,7 +2301,11 @@ nav {
 
 
 
+
   @media (min-width: 992px) {
+    .img-fluid {
+      width: 100%;
+    }
     .carousel {
       .carousel-inner {
         display: flex;
@@ -2325,6 +2348,7 @@ nav {
       .slide {
         height: 100%;
         display: flex;
+        align-items: center;
         flex-direction: column;
       }
     }
@@ -2348,6 +2372,7 @@ nav {
       .slide {
         height: 100%;
         display: flex;
+        align-items: center;
         flex-direction: column;
         img {
           max-height: 250px;
