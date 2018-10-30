@@ -2213,6 +2213,10 @@ input[type="text"]:focus {
 #uws-sign-in > div:nth-child(3) button:nth-child(3) {
   width: 200px;
 }
+#uws-sign-in > div:nth-child(3) button:nth-child(1) > span > span,
+#uws-sign-in > div:nth-child(3) button:nth-child(3) > span > span {
+  padding: 0 !important;
+}
 #uws-sign-in > div:nth-child(3) button:nth-child(1) {
   margin-bottom: 15px;
 }
