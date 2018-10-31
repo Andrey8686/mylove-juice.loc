@@ -2494,6 +2494,56 @@ nav {
 
 
 
+
+
+
+
+#target-transactions {
+  .modal-dialog {
+    max-width: 700px;
+  }
+}
+
+
+.modal-transactions {
+  padding: 0 60px 20px;
+  table {
+    width: 100%;
+    thead {
+      th {
+        line-height: 50px;
+        text-align: center;
+        color: #FFFD4C;
+      }
+    }
+    tbody {
+      td {
+        line-height: 50px;
+        text-align: center;
+        &.line {
+          border-top: 1px solid #A13922;
+          border-bottom: 1px solid #A13922;
+          padding: 0;
+          div {
+            border-top: 1px solid #C4712D;
+          }
+        }
+      }
+    }
+    .icon-info {
+      text-decoration: none;
+    }
+  }
+
+  @media screen and (max-width: 575px) {
+    padding: 0 20px 20px;
+    font-size: 0.8rem;
+  }
+}
+
+
+
+
 .page-num {
   display: flex;
   align-items: flex-end;
@@ -2501,10 +2551,10 @@ nav {
   margin: 10px 0;
   & > * {
     font-family: 'BlissPro-Medium';
-    font-size: 12px;
-    margin-right: 5px;
+    font-size: 17px;
+    margin-right: 9px;
     &.active {
-      font-size: 16px;
+      font-size: 21px;
     }
     &:first-child {
       text-decoration: none;
@@ -2523,12 +2573,12 @@ nav {
   }
 
   @media screen and (max-width: 767px) {
-    & > * {
-      font-size: 7.5px;
-      &.active {
-        font-size: 10px;
-      }
-    }
+    //& > * {
+    //  font-size: 7.5px;
+    //  &.active {
+    //    font-size: 10px;
+    //  }
+    //}
   }
 
   @media screen and (max-width: 575px) {

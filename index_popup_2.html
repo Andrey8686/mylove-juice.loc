@@ -84,7 +84,81 @@
 
 
 
+        <button type="button" class="button-theme" data-toggle="modal" data-target="#target-transactions">
+            <span><span>Транзакции</span></span>
+        </button>
 
+        <div class="modal fade" id="target-transactions" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <span class="icon-close" data-dismiss="modal"></span>
+
+                    <div class="modal-transactions">
+                        <h2>История переводов</h2>
+
+                        <table>
+                            <thead>
+                            <tr>
+                                <th>№</th>
+                                <th>Дата</th>
+                                <th>Сумма</th>
+                                <th>Статус</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td class="line" colspan="4"><div></div></td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>00.00.0000</td>
+                                <td>500</td>
+                                <td>Успешно</td>
+                            </tr>
+                            <tr>
+                                <td class="line" colspan="4"><div></div></td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>00.00.0000</td>
+                                <td>500</td>
+                                <td>Ошибка, <a href="#">повторит</a></td>
+                            </tr>
+                            <tr>
+                                <td class="line" colspan="4"><div></div></td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>00.00.0000</td>
+                                <td>500</td>
+                                <td>В обработке <i class="icon-info" data-reason="ждем, ждем, ждем!"></i></td>
+                            </tr>
+                            <tr>
+                                <td class="line" colspan="4"><div></div></td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>00.00.0000</td>
+                                <td>500</td>
+                                <td>Ошибка, <a href="#">повторит</a></td>
+                            </tr>
+                            </tbody>
+                        </table>
+
+                        <div class="page-num">
+                            <a href="#"><<</a>
+                            <a href="#">1</a>
+                            <span class="active">2</span>
+                            <a href="#">3</a>
+                            <span class="dots">...</span>
+                            <a href="#">10</a>
+                            <a href="#">>></a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
 
 
 

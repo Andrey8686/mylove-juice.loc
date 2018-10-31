@@ -628,9 +628,7 @@ $.fn.CheckboxTheme = function () {
             mainParent.addClass("checked");
         }
 
-        mainParent.find("label").click(function () {
-            return false;
-        });
+        mainParent.find("label").removeAttr("for");
 
         mainParent.find("i").click(function () {
 
@@ -666,9 +664,7 @@ $.fn.RadioTheme = function () {
         else if (!main.hasAttr("checked") && main.hasAttr("disabled")) mainParent.addClass("disabled");
         else if (main.hasAttr("checked") && !main.hasAttr("disabled")) mainParent.addClass("checked");
 
-        mainParent.find("label").click(function () {
-            return false;
-        });
+        mainParent.find("label").removeAttr("for");
 
         mainParent.find("i").click(function () {
 

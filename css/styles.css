@@ -1968,6 +1968,41 @@ nav > div > div > div > div ul li a.nav-link:hover span:last-child {
     width: 270px;
   }
 }
+#target-transactions .modal-dialog {
+  max-width: 700px;
+}
+.modal-transactions {
+  padding: 0 60px 20px;
+}
+.modal-transactions table {
+  width: 100%;
+}
+.modal-transactions table thead th {
+  line-height: 50px;
+  text-align: center;
+  color: #FFFD4C;
+}
+.modal-transactions table tbody td {
+  line-height: 50px;
+  text-align: center;
+}
+.modal-transactions table tbody td.line {
+  border-top: 1px solid #A13922;
+  border-bottom: 1px solid #A13922;
+  padding: 0;
+}
+.modal-transactions table tbody td.line div {
+  border-top: 1px solid #C4712D;
+}
+.modal-transactions table .icon-info {
+  text-decoration: none;
+}
+@media screen and (max-width: 575px) {
+  .modal-transactions {
+    padding: 0 20px 20px;
+    font-size: 0.8rem;
+  }
+}
 .page-num {
   display: flex;
   align-items: flex-end;
@@ -1976,11 +2011,11 @@ nav > div > div > div > div ul li a.nav-link:hover span:last-child {
 }
 .page-num > * {
   font-family: 'BlissPro-Medium';
-  font-size: 12px;
-  margin-right: 5px;
+  font-size: 17px;
+  margin-right: 9px;
 }
 .page-num > *.active {
-  font-size: 16px;
+  font-size: 21px;
 }
 .page-num > *:first-child {
   text-decoration: none;
@@ -1990,12 +2025,6 @@ nav > div > div > div > div ul li a.nav-link:hover span:last-child {
   text-decoration: none;
 }
 @media screen and (max-width: 767px) {
-  .page-num > * {
-    font-size: 7.5px;
-  }
-  .page-num > *.active {
-    font-size: 10px;
-  }
 }
 form .p14 {
   font-family: 'BlissPro-Light';
