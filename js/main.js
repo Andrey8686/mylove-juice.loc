@@ -718,7 +718,7 @@ var SelectTheme = {
                 $(this).addClass("selected");
                 main.parent().find(".ts_selected_item").html(main.find($(this).attr("value").length ? "[value=" + $(this).attr("value") + "]" : "option:first-child").prop("selected", true).html());
                 $(this).parent().hide();
-
+                SelectTheme.main.change();
             });
 
             SelectTheme.Cor(main);
