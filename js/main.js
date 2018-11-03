@@ -351,6 +351,30 @@ var UwsWidget = {
             UwsWidget.SignUp();
         }
     },
+    UpdateProfile: function () {
+        this.intervalId = setInterval(function () {
+            UwsWidget.InitDefault();
+
+
+            if (UwsWidget.inputText.length == 5 && UwsWidget.buttons.length == 5) {
+                clearInterval(UwsWidget.intervalId);
+
+                UwsWidget.AddClosingListener();
+
+                UwsWidget.SetPlaceholder();
+
+                UwsWidget.main.find("input[type=checkbox]").CheckboxTheme();
+
+                UwsWidget.main.find("input[name=captcha]").attr("type", "text");
+
+                $(UwsWidget.buttons[1]).addClass("btn-fb").html("<img src='/images/btn-fb.png'>");
+                $(UwsWidget.buttons[2]).addClass("btn-ok").html("<img src='/images/btn-ok.png'>");
+                $(UwsWidget.buttons[3]).addClass("btn-vk").html("<img src='/images/btn-vk.png'>");
+
+                $(UwsWidget.buttons[4]).addClass("button-theme").html("<span><span>" + $(UwsWidget.buttons[4]).text() + "</span></span>");
+            }
+        }, 10);
+    },
     SignUp: function () {
         this.intervalId = setInterval(function () {
             UwsWidget.InitDefault();
@@ -691,11 +715,15 @@ var SelectTheme = {
             });
         });
     },
+    Reload: function (id) {
+        $(id).parent().parent().html($(id).remove());
+        SelectTheme.Init();
+    },
     Build: function () {
         this.main = $("select");
         this.main.each(function () {
             var main = $(this);
-            if ($(this).parent().hasClass("theme_select")) return false;
+            if ($(this).parent().hasClass("theme_select")) return true;
             $(this).wrap("<div class='theme_select'></div>");
             var optionAr = $(this).find("option");
             var defaultOptions = $(this).find(":selected").text();
@@ -710,6 +738,7 @@ var SelectTheme = {
                 }
             }
             newSelect += "</ul>";
+
             $(this).parent().append(newSelect);
 
             main.parent().find("ul li").click(function () {
@@ -718,7 +747,7 @@ var SelectTheme = {
                 $(this).addClass("selected");
                 main.parent().find(".ts_selected_item").html(main.find($(this).attr("value").length ? "[value=" + $(this).attr("value") + "]" : "option:first-child").prop("selected", true).html());
                 $(this).parent().hide();
-                SelectTheme.main.change();
+                main.change();
             });
 
             SelectTheme.Cor(main);
