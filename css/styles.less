@@ -1795,6 +1795,19 @@ nav {
     font-family: 'BlissPro-Medium';
   }
 
+  .p-mail {
+    margin: 0 auto 0;
+  }
+  .btn-reg-chek-1 {
+    margin: 33px auto 34px;
+  }
+  .btn-history {
+    display: table;
+    margin: auto;
+    text-transform: uppercase;
+    font-size: 16px;
+  }
+
   .nicescroll-block {
     div {
       padding: 1px 25px;
@@ -1886,6 +1899,9 @@ nav {
 
 
   @media (min-width: 992px) {
+
+
+
     .carousel {
       .carousel-inner {
         display: flex;
@@ -1907,6 +1923,12 @@ nav {
 
 
   @media (min-width: 992px) and (max-width: 1199px) {
+
+
+    .btn-reg-chek-1 {
+      margin: 41px auto 42px;
+    }
+
     .carousel {
       .carousel-item {
         &.active, &:first-child > div {
@@ -1948,6 +1970,10 @@ nav {
 
   @media screen and (max-width: 991px) {
 
+
+    .btn-reg-chek-1 {
+      margin: 44px auto 44px;
+    }
 
 
     .carousel {
@@ -2015,6 +2041,19 @@ nav {
     h2 {
       margin: 0;
     }
+
+
+
+    .btn-reg-chek-2 {
+      margin: 24px auto 29px;
+    }
+    .btn-history {
+      margin: 0 auto 10px;
+      font-size: 14px;
+    }
+
+
+
 
     .button-theme-md {
       margin: 9px auto 29px;
@@ -2088,7 +2127,7 @@ nav {
     }
 
     .button-theme-md {
-      margin: 9px auto 20px;
+      margin: 24px auto 29px;
     }
 
     h6 {
@@ -2097,8 +2136,20 @@ nav {
     }
     .p-mail {
       font-size: 9px;
-      margin-bottom: 21px !important;
+      margin-bottom: 10px !important;
     }
+
+
+
+    .btn-reg-chek-2 {
+      margin: 12px auto 28px;
+    }
+    .btn-history {
+      font-size: 8px;
+    }
+
+
+
 
     .winner-block-t1 .nice-text {
 
@@ -3021,6 +3072,7 @@ input[type="text"]:focus {
 /* Форма восстановления пароля ====================================== */
 
 
+
 #uws-reset-password, #uws-reset-password-success {
   width: 490px !important;
 
@@ -3061,6 +3113,100 @@ input[type="text"]:focus {
     h1 {
       font-size: 30px;
       line-height: 37px;
+    }
+  }
+}
+
+
+/* Обновления аккаунта ====================================== */
+
+
+#uws-update-profile, #uws-update-profile-success {
+  width: 600px !important;
+
+  & > div {
+    &:nth-child(2) {
+      & > div:first-child {
+        display: flex;
+        justify-content: space-around;
+        padding: 20px;
+      }
+    }
+
+    &:last-child {
+      & > button {
+        display: table;
+        margin: auto;
+      }
+    }
+  }
+
+
+
+  h1 {
+    margin: 0;
+    line-height: 51px;
+  }
+
+
+  .btn-vk,.btn-ok,.btn-fb {
+    background: none;
+    border: none;
+    padding: 0;
+    color: #FFF;
+    cursor: pointer;
+    display: table;
+  }
+
+  form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    & > div {
+      margin-bottom: 30px;
+      width: calc(50% - 10px) !important;
+
+      &:nth-child(3), &:nth-child(4), &:nth-child(5) {
+        width: 100% !important;
+      }
+      &:nth-child(3) {
+        input {
+          width: calc(50% - 10px) !important;
+        }
+      }
+    }
+  }
+
+
+  @media (max-width: 768px) {
+    width: 530px !important;
+    padding: 18px 40px 35px !important;
+  }
+
+
+
+  @media (max-width: 575px) {
+    width: 290px !important;
+    padding: 18px 20px 35px !important;
+    h1 {
+      font-size: 30px;
+      line-height: 37px;
+    }
+    label {
+      width: 213px;
+    }
+
+    form {
+      & > div {
+        margin-bottom: 15px;
+        width: 100% !important;
+
+        &:nth-child(3) {
+          input {
+            width: 100% !important;
+          }
+        }
+      }
     }
   }
 }

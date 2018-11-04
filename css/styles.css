@@ -1429,6 +1429,18 @@ nav > div > div > div > div ul li a.nav-link:hover span:last-child {
 .page-lk .h6 {
   font-family: 'BlissPro-Medium';
 }
+.page-lk .p-mail {
+  margin: 0 auto 0;
+}
+.page-lk .btn-reg-chek-1 {
+  margin: 33px auto 34px;
+}
+.page-lk .btn-history {
+  display: table;
+  margin: auto;
+  text-transform: uppercase;
+  font-size: 16px;
+}
 .page-lk .nicescroll-block div {
   padding: 1px 25px;
 }
@@ -1523,6 +1535,9 @@ nav > div > div > div > div ul li a.nav-link:hover span:last-child {
   }
 }
 @media (min-width: 992px) and (max-width: 1199px) {
+  .page-lk .btn-reg-chek-1 {
+    margin: 41px auto 42px;
+  }
   .page-lk .carousel .carousel-item.active,
   .page-lk .carousel .carousel-item:first-child > div {
     width: 214px;
@@ -1548,6 +1563,9 @@ nav > div > div > div > div ul li a.nav-link:hover span:last-child {
   }
 }
 @media screen and (max-width: 991px) {
+  .page-lk .btn-reg-chek-1 {
+    margin: 44px auto 44px;
+  }
   .page-lk .carousel .carousel-inner {
     width: 100%;
   }
@@ -1599,6 +1617,13 @@ nav > div > div > div > div ul li a.nav-link:hover span:last-child {
 @media screen and (max-width: 767px) {
   .page-lk h2 {
     margin: 0;
+  }
+  .page-lk .btn-reg-chek-2 {
+    margin: 24px auto 29px;
+  }
+  .page-lk .btn-history {
+    margin: 0 auto 10px;
+    font-size: 14px;
   }
   .page-lk .button-theme-md {
     margin: 9px auto 29px;
@@ -1654,7 +1679,7 @@ nav > div > div > div > div ul li a.nav-link:hover span:last-child {
     margin-top: 8px;
   }
   .page-lk .button-theme-md {
-    margin: 9px auto 20px;
+    margin: 24px auto 29px;
   }
   .page-lk h6 {
     font-size: 7px;
@@ -1662,7 +1687,13 @@ nav > div > div > div > div ul li a.nav-link:hover span:last-child {
   }
   .page-lk .p-mail {
     font-size: 9px;
-    margin-bottom: 21px !important;
+    margin-bottom: 10px !important;
+  }
+  .page-lk .btn-reg-chek-2 {
+    margin: 12px auto 28px;
+  }
+  .page-lk .btn-history {
+    font-size: 8px;
   }
   .page-lk .winner-block-t1 .nice-text {
     font-family: 'BlissPro-Medium';
@@ -2427,6 +2458,95 @@ input[type="text"]:focus {
   #uws-reset-password-success h1 {
     font-size: 30px;
     line-height: 37px;
+  }
+}
+/* Обновления аккаунта ====================================== */
+#uws-update-profile,
+#uws-update-profile-success {
+  width: 600px !important;
+}
+#uws-update-profile > div:nth-child(2) > div:first-child,
+#uws-update-profile-success > div:nth-child(2) > div:first-child {
+  display: flex;
+  justify-content: space-around;
+  padding: 20px;
+}
+#uws-update-profile > div:last-child > button,
+#uws-update-profile-success > div:last-child > button {
+  display: table;
+  margin: auto;
+}
+#uws-update-profile h1,
+#uws-update-profile-success h1 {
+  margin: 0;
+  line-height: 51px;
+}
+#uws-update-profile .btn-vk,
+#uws-update-profile-success .btn-vk,
+#uws-update-profile .btn-ok,
+#uws-update-profile-success .btn-ok,
+#uws-update-profile .btn-fb,
+#uws-update-profile-success .btn-fb {
+  background: none;
+  border: none;
+  padding: 0;
+  color: #FFF;
+  cursor: pointer;
+  display: table;
+}
+#uws-update-profile form,
+#uws-update-profile-success form {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+#uws-update-profile form > div,
+#uws-update-profile-success form > div {
+  margin-bottom: 30px;
+  width: calc(50% - 10px) !important;
+}
+#uws-update-profile form > div:nth-child(3),
+#uws-update-profile-success form > div:nth-child(3),
+#uws-update-profile form > div:nth-child(4),
+#uws-update-profile-success form > div:nth-child(4),
+#uws-update-profile form > div:nth-child(5),
+#uws-update-profile-success form > div:nth-child(5) {
+  width: 100% !important;
+}
+#uws-update-profile form > div:nth-child(3) input,
+#uws-update-profile-success form > div:nth-child(3) input {
+  width: calc(50% - 10px) !important;
+}
+@media (max-width: 768px) {
+  #uws-update-profile,
+  #uws-update-profile-success {
+    width: 530px !important;
+    padding: 18px 40px 35px !important;
+  }
+}
+@media (max-width: 575px) {
+  #uws-update-profile,
+  #uws-update-profile-success {
+    width: 290px !important;
+    padding: 18px 20px 35px !important;
+  }
+  #uws-update-profile h1,
+  #uws-update-profile-success h1 {
+    font-size: 30px;
+    line-height: 37px;
+  }
+  #uws-update-profile label,
+  #uws-update-profile-success label {
+    width: 213px;
+  }
+  #uws-update-profile form > div,
+  #uws-update-profile-success form > div {
+    margin-bottom: 15px;
+    width: 100% !important;
+  }
+  #uws-update-profile form > div:nth-child(3) input,
+  #uws-update-profile-success form > div:nth-child(3) input {
+    width: 100% !important;
   }
 }
 /* Форма регистрации ====================================== */
